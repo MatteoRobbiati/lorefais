@@ -29,11 +29,17 @@ export default function Layout({ children }) {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <nav className="bg-white dark:bg-gray-800 shadow p-4 mb-8">
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold">My Personal Webpage</h1>
+          <h1 className="text-xl font-bold"> Welcome :)</h1>
           <div className="flex space-x-4">
             <a href="/" className="hover:underline">Home</a>
-            <a href="/about" className="hover:underline">About</a>
-            <a href="/contact" className="hover:underline">Contact</a>
+            <a
+              href="/cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline font-semibold"
+            >
+              CV
+            </a>
           </div>
           <button
             onClick={toggleTheme}
