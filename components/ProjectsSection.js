@@ -43,42 +43,36 @@ export default function ProjectsSection() {
       description:
         "Multi-variable numerical integration via Quantum Machine Learning.",
       github: "https://github.com/qiboteam/QiNNtegrate",
-      backgroundImage: "/images/qinntegrate-bg.jpg",
     },
     {
       name: "adiabatic-fit",
       description:
         "Probability density estimation via hybrid gate & analog-based quantum computing.",
       github: "https://github.com/qiboteam/adiabatic-fit",
-      backgroundImage: "/images/adiabatic-fit-bg.jpg",
     },
     {
       name: "rtqem",
       description:
         "Real-time quantum error mitigation for variational optimization on quantum hardware.",
       github: "https://github.com/qiboteam/rtqem",
-      backgroundImage: "/images/rtqem-bg.jpg",
     },
     {
       name: "boostvqe",
       description:
         "Boosting ground-states preparation with Double-Bracket Quantum Algorithms.",
       github: "https://github.com/qiboteam/boostvqe",
-      backgroundImage: "/images/boostvqe-bg.jpg",
     },
     {
       name: "kifit",
       description:
         "A simulation tool for New Physics search with (Non-)Linear King Plots.",
       github: "https://github.com/MatteoRobbiati/kifit",
-      backgroundImage: "/images/kifit-bg.jpg",
     },
     {
       name: "conditional-pokeGAN",
       description:
         "Generating conditioned Pokémon images via Generative Adversarial Network.",
       github: "https://github.com/MatteoRobbiati/Conditional-pokeGAN",
-      backgroundImage: "/images/conditional-pokegan-bg.jpg",
     },
   ];
 
