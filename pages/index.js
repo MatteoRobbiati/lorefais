@@ -16,7 +16,7 @@
             <img
               src="/me.jpg" // Replace with the actual path to your picture
               alt="Your Name"
-              className="w-48 h-48 rounded-full border-4 border-gray-300 dark:border-gray-600"
+              className="w-36 h-40 rounded-full border-4 border-gray-300 dark:border-gray-600"
             />
             {/* Text Content */}
             <div className="text-center md:text-left">
