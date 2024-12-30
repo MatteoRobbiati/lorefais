@@ -171,21 +171,23 @@ export default function Home() {
         <h2 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white text-center">Public lectures - YouTube playlists</h2>
         <div className="bg-white dark:bg-gray-700 rounded-lg shadow-xl p-6 mb-8 border-2 border-gray-400 dark:border-gray-600">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Left Box - Course 1 */}
+
+            {/* Right Box - Course 1 */}
             <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-lg">
               <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Singapore, 2024</h3>
               <p className="text-[1.3rem] text-gray-700 dark:text-gray-300 mb-4">Quantum computing with Qibo (basics)</p>
-              {/* Embed the video for Course 1 */}
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe
-                  width="350"
-                  height="220"
-                  src="https://www.youtube.com/embed/tOXnRWNpjns"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              {/* Embed the video for Course 2 */}
+              <div className="flex justify-center w-full">
+                <div className="relative w-11/12 pb-[56.25%]"> {/* 56.25% is the aspect ratio for 16:9 */}
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/tOXnRWNpjns"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
             
@@ -194,52 +196,55 @@ export default function Home() {
               <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">São Paulo, 2024</h3>
               <p className="text-[1.3rem] text-gray-700 dark:text-gray-300 mb-4">Practical minicourse on quantum computing</p>
               {/* Embed the video for Course 2 */}
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe
-                  width="350"
-                  height="220"
-                  src="https://www.youtube.com/embed/fPtyVs6uXPM?list=PLg0_ydgtbHGFmY8oxvHZdluUFFt874_yv"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div className="flex justify-center w-full">
+                <div className="relative w-11/12 pb-[56.25%]"> {/* 56.25% is the aspect ratio for 16:9 */}
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/fPtyVs6uXPM?list=PLg0_ydgtbHGFmY8oxvHZdluUFFt874_yv"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
 
-            {/* Right Box - Course 2 */}
+            {/* Right Box - Course 3 */}
             <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-lg">
               <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">PyHEP, 2024</h3>
               <p className="text-[1.3rem] text-gray-700 dark:text-gray-300 mb-4">Quantum Machine Learning in High Energy Physics with Qibo</p>
               {/* Embed the video for Course 2 */}
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe
-                  width="350"
-                  height="220"
-                  src="https://www.youtube.com/embed/AprLJjXI_PI"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div className="flex justify-center w-full">
+                <div className="relative w-11/12 pb-[56.25%]"> {/* 56.25% is the aspect ratio for 16:9 */}
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/AprLJjXI_PI"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
 
-            {/* Right Box - Course 2 */}
+            {/* Right Box - Course 3 */}
             <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-lg">
               <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">CERN, 2023</h3>
               <p className="text-[1.3rem] text-gray-700 dark:text-gray-300 mb-4">Qibo: an open-source hybrid quantum operating system</p>
               {/* Embed the video for Course 2 */}
-              <div className="aspect-w-16 aspect-h-9">
-                <iframe
-                  width="350"
-                  height="220"
-                  src="https://www.youtube.com/embed/vlos9LvM80Q?"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div className="flex justify-center w-full">
+                <div className="relative w-11/12 pb-[56.25%]"> {/* 56.25% is the aspect ratio for 16:9 */}
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/vlos9LvM80Q?"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
 
