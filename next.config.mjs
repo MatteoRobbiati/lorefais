@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/lorefais' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/lorefais' : '',
+  basePath: '/lorefais', // Subpath for GitHub Pages
+  assetPrefix: '/lorefais', // Prefix for static assets
+  output: 'export', // Enables static export
 };
 
 export default nextConfig;
