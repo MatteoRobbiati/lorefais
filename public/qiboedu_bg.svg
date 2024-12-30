@@ -5,15 +5,17 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   id="svg83635"
-   version="1.1"
-   viewBox="-60 -60 120 120"
+   width="120mm"
    height="120mm"
-   width="120mm">
+   viewBox="-60 -60 120 120"
+   version="1.1"
+   id="svg83635">
   <defs
      id="defs83637">
     <style
        id="style167584">.cls-1{fill:#a3a3a3;}.cls-1,.cls-2{fill-rule:evenodd;}.cls-2{fill:#4e7ccc;}</style>
+    <style
+       id="style83709">.cls-1{fill:#a3a3a3;}.cls-1,.cls-2{fill-rule:evenodd;}.cls-2{fill:#4e7ccc;}</style>
   </defs>
   <metadata
      id="metadata2822">
@@ -28,32 +30,51 @@
     </rdf:RDF>
   </metadata>
   <g
-     style="fill:none;stroke:black;stroke-width:0.05"
-     id="Template">
+     transform="matrix(0.54965933,0,0,0.5459947,20.803023,13.092818)"
+     id="g83803"
+     style="fill:#000000">
     <g
-       transform="matrix(0.99747934,0,0,0.99304776,22.012444,18.769644)"
-       id="g167663"
-       style="fill:none">
+       style="stroke-width:0"
+       id="SVGRepo_bgCarrier-3" />
+    <g
+       style="stroke-linecap:round;stroke-linejoin:round"
+       id="SVGRepo_tracerCarrier-6" />
+    <g
+       id="SVGRepo_iconCarrier-7">
       <g
-         style="stroke-width:0"
-         id="SVGRepo_bgCarrier" />
+         style="fill:#a3a3a3"
+         id="g83771">
+        <rect
+           x="9"
+           y="20"
+           width="30"
+           height="13"
+           id="rect83767" />
+        <ellipse
+           cx="24"
+           cy="33"
+           rx="15"
+           ry="6"
+           id="ellipse83769" />
+      </g>
+      <path
+         style="fill:#4e7ccc"
+         d="M 23.1,8.2 0.6,18.1 c -0.8,0.4 -0.8,1.5 0,1.9 l 22.5,9.9 c 0.6,0.2 1.2,0.2 1.8,0 L 47.4,20 c 0.8,-0.4 0.8,-1.5 0,-1.9 L 24.9,8.2 c -0.6,-0.3 -1.2,-0.3 -1.8,0 z"
+         id="path83773" />
       <g
-         style="stroke-linecap:round;stroke-linejoin:round"
-         id="SVGRepo_tracerCarrier" />
-      <g
-         id="SVGRepo_iconCarrier">
+         style="fill:#a3a3a3"
+         id="g83781">
         <path
-           style="fill:#4e7ccc"
-           d="m 16.0003,2.99951 -14.99999,7.99999 7.11,3.79 7.88999,4.21 7.98,-4.259 7.019,-3.741 z"
-           id="path167642" />
+           d="M 43.2,20.4 23.2,17 c -0.5,-0.1 -1.1,0.3 -1.2,0.8 -0.1,0.5 0.3,1.1 0.8,1.2 L 42,22.2 V 37 c 0,0.6 0.4,1 1,1 0.6,0 1,-0.4 1,-1 V 21.4 c 0,-0.5 -0.4,-0.9 -0.8,-1 z"
+           id="path83775" />
+        <circle
+           cx="43"
+           cy="37"
+           r="2"
+           id="circle83777" />
         <path
-           style="fill:#4e7ccc"
-           d="m 24,14.7497 v 9.25 c 0,0 -3,3 -8,3 -5,0 -8,-3 -8,-3 v -9 l 0.11,-0.21 7.89,4.21 7.98,-4.26 z"
-           id="path167644" />
-        <path
-           style="stroke:#a3a3a3;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"
-           d="m 16,11 8,3.75 V 29 M 8,19 v 5 c 0,0 3,3 8,3 2.022,0 3.719,-0.356 5.021,-0.941 M 1,11 16,3 31,11 16,19 Z"
-           id="path167646" />
+           d="m 46,40 c 0,1.7 -3,6 -3,6 0,0 -3,-4.3 -3,-6 0,-1.7 1.3,-3 3,-3 1.7,0 3,1.3 3,3 z"
+           id="path83779" />
       </g>
     </g>
   </g>

@@ -83,7 +83,7 @@ export default function ProjectsSection() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="relative w-full h-64 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 border border-gray-800 dark:border-gray-600 hover:border-[#4e7ccc] dark:hover:border-[#4e7ccc]"
+            className="relative w-full h-48 rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 border border-gray-800 dark:border-gray-600 hover:border-[#4e7ccc] dark:hover:border-[#4e7ccc]"
             style={{
               backgroundImage: `url(${project.backgroundImage})`,
               backgroundSize: "cover",
@@ -96,12 +96,12 @@ export default function ProjectsSection() {
             {/* Card Content */}
             <div className="relative flex flex-col justify-between h-full p-4 text-white">
               {/* Title */}
-              <h3 className="text-2xl font-bold text-black dark:text-white">
+              <h3 className="text-lg font-bold text-black dark:text-white">
                 {project.name}
               </h3>
 
               {/* Description */}
-              <p className="text-[1.225rem] opacity-85 text-black dark:text-white">
+              <p className="text-md opacity-85 text-black dark:text-white">
                 {project.description}
               </p>
 
