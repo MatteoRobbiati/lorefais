@@ -146,16 +146,6 @@
             </div>
           </div>
 
-          {/* Conferences & Proceedings */}
-          <h2 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white text-center">Conferences & Workshops</h2>
-          <div className="bg-white dark:bg-gray-700 rounded-lg shadow-xl p-6 mb-8 border-2 border-gray-400 dark:border-gray-600">
-            <ul className="list-disc pl-6 mt-4 space-y-2 text-gray-700 dark:text-gray-300">
-              <li>2024 APS March Meeting, Minneapolis, USA</li>
-              <li>2023 QTML, CERN, Geneva</li>
-              <li>2023 Quantum Technologies Workshop, INFN, Turin</li>
-            </ul>
-          </div>
-
           {/* Courses Section */}
           <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white text-center">Public lectures - YouTube playlists</h2>
           <div className="bg-white dark:bg-gray-700 rounded-lg shadow-xl p-6 mb-8 border-2 border-gray-400 dark:border-gray-600">
@@ -244,6 +234,27 @@
           {/* Code Projects */}
           <h2 className="text-center text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Code projects</h2>
           <ProjectsSection />
+
+
+          {/* Contacts Section */}
+          <section id="contacts" className="mt-16 p-8">
+            <h2 className="text-2xl font-bold mb-4 text-center">Contact Me</h2>
+            <div className="flex justify-center space-x-8 mt-4">
+              <a href="matteo.robbiati@cern.ch" className="text-gray-500 hover:text-blue-500">
+                <i className="fas fa-envelope fa-2x"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/matteo-robbiati-43ab05209/" className="text-gray-500 hover:text-blue-500">
+                <i className="fab fa-linkedin fa-2x"></i>
+              </a>
+              <a href="https://github.com/MatteoRobbiati" className="text-gray-500 hover:text-blue-500">
+                <i className="fab fa-github fa-2x"></i>
+              </a>
+              <a href="https://scholar.google.com/citations?user=DYyhruMAAAAJ&hl=it" className="text-gray-500 hover:text-blue-500">
+                <i className="fas fa-graduation-cap fa-2x"></i>
+              </a>
+            </div>
+          </section>
+
         </div>
       </div>
     );

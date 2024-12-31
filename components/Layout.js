@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// components/Layout.js
 export default function Layout({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -29,7 +28,7 @@ export default function Layout({ children }) {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
       <nav className="bg-white dark:bg-gray-800 shadow p-4 mb-8">
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold"> Welcome :)</h1>
+          <h1 className="text-xl font-bold">Welcome :)</h1>
           <div className="flex space-x-4">
             <a href="/" className="hover:underline">Home</a>
             <a
@@ -39,6 +38,12 @@ export default function Layout({ children }) {
               className="hover:underline font-semibold"
             >
               CV
+            </a>
+            <a
+              href="#contacts"
+              className="hover:underline font-semibold"
+            >
+              Contacts
             </a>
           </div>
           <button
