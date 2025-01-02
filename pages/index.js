@@ -2,9 +2,9 @@
 
   export default function Home() {
     return (
-      <div className="min-h-screen bg-cover bg-center bg-no-repeat dark:bg-gray-900" style={{ backgroundImage: "url('/bg.svg')" }}>
+      <div className="min-h-screen bg-cover bg-center bg-no-repeat dark:bg-gray-00">
         {/* Main content box */}
-        <div className="max-w-4xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+        <div className="max-w-5xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
           {/* Introduction */}
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold mb-1 text-gray-900 dark:text-white">Hi, Matteo here 👋🏻</h1>

@@ -14,25 +14,19 @@
   }
 }
 
-/* Reset margin and padding for body and html */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
-/* Ensure the background image covers the entire screen */
 body {
-  background-image: url('/bg.svg');  /* Path to your background image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh; /* Full viewport height */
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
-
 * {
-  box-sizing: border-box; /* Optional: To make layout easier */
+  box-sizing: border-box; 
 }
 
 @layer utilities {
@@ -40,4 +34,3 @@ body {
     text-wrap: balance;
   }
 }
-

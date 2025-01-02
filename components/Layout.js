@@ -4,19 +4,24 @@ export default function Layout({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    const storedPreference = localStorage.getItem('theme');
-    if (storedPreference) {
-      setIsDarkMode(storedPreference === 'dark');
+    if (typeof window !== 'undefined') {
+      // Check if localStorage is available
+      const storedPreference = localStorage.getItem('theme');
+      if (storedPreference) {
+        setIsDarkMode(storedPreference === 'dark');
+      }
     }
   }, []);
 
   useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+    if (typeof window !== 'undefined') {
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
     }
   }, [isDarkMode]);
 
@@ -25,7 +30,14 @@ export default function Layout({ children }) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <div 
+      className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200" 
+      style={{
+        backgroundImage: "url('/bg.svg')",
+        backgroundRepeat: "no-repeat", // Prevents repeating the background
+        backgroundSize: "cover", // Adjust this if needed, "cover" makes the image cover the whole div
+      }}
+    >
       <nav className="bg-white dark:bg-gray-800 shadow p-4 mb-8">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex space-x-4">
