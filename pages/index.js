@@ -46,6 +46,14 @@
                 <li className="flex items-start space-x-4">
                   <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">🗞</div>
                   <div>
+                    <span className="italic">"Determining probability density functions with adiabatic quantum computing"</span>, 
+                    M. Robbiati, J. M. Cruz-Martinez, S. Carrazza, <span className="italic">2025</span>,
+                    <a href="https://link.springer.com/article/10.1007/s42484-024-00228-2#citeas" className="text-[#4e7ccc] hover:underline ml-2">Quantum Mach. Intell. 7, 5.</a>
+                  </div>
+                </li>
+                <li className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">🗞</div>
+                  <div>
                     <span className="italic">"Qibolab: an open-source hybrid quantum operating system"</span>, 
                     S. Efthymiou et al., <span className="italic">2024</span>, 
                     <a href="https://quantum-journal.org/papers/q-2024-02-12-1247/" className="text-[#4e7ccc] hover:underline ml-2">Quantum 8, 1247</a>
@@ -73,14 +81,6 @@
 
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Preprints</h3>
               <ul className="text-md list-none pl-0 space-y-1 text-gray-700 dark:text-gray-300">
-                <li className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">📝</div>
-                  <div>
-                    <span className="italic">"Determining probability density functions with adiabatic quantum computing"</span>, 
-                    M. Robbiati et al.
-                    <a href="https://arxiv.org/abs/2303.11346" className="text-[#4e7ccc] hover:underline ml-2">arXiv:2303.11346</a>
-                  </div>
-                </li>
                 <li className="flex items-start space-x-4">
                   <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">📝</div>
                   <div>
