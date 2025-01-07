@@ -105,6 +105,14 @@
                     <a href="https://arxiv.org/abs/2410.00101" className="text-[#4e7ccc] hover:underline ml-2">arXiv:2410.00101</a>
                   </div>
                 </li>
+                <li className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">📝</div>
+                  <div>
+                    <span className="italic">"Simulating Bell inequalities with Qibo"</span>, 
+                    I. Masina et al.
+                    <a href="https://arxiv.org/abs/2501.01434" className="text-[#4e7ccc] hover:underline ml-2">arXiv:2501.01434</a>
+                  </div>
+                </li>
               </ul>
               <div className="border-t-2 border-gray-400 dark:border-gray-600 my-6"></div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Proceedings of science</h3>
