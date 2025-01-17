@@ -1,4 +1,7 @@
   import ProjectsSection from '../components/ProjectsSection';
+  import { FaGithub } from "react-icons/fa"; 
+  import { SiInkscape, SiLatex } from "react-icons/si"; 
+
 
   export default function Home() {
     return (
@@ -242,6 +245,88 @@
           {/* Code Projects */}
           <h2 className="text-center text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Code projects</h2>
           <ProjectsSection />
+
+          {/* Graphic and Text Projects */}
+          <h2 className="text-center text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
+            Graphic and Text Projects
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            
+            {/* Inkscape Drawings Card */}
+            <div 
+              className="relative rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 border border-gray-800 dark:border-gray-600"
+              style={{
+                backgroundImage: "url('/images/inkscape-bg.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            >
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black opacity-15 dark:opacity-20"></div>
+              
+              {/* Card Content */}
+              <div className="relative flex flex-col justify-between h-full p-6 text-black dark:text-white">
+                {/* Title with Icon */}
+                <div className="flex items-center mb-2">
+                  <SiInkscape className="text-[#4e7ccc] mr-2" size={24} />
+                  <h3 className="text-xl font-semibold">Inkscape Vectorial Drawings</h3>
+                </div>
+
+                {/* Description */}
+                <p className="text-md opacity-90">
+                  A collection of vectorial drawings created using Inkscape, showcasing various designs and illustrations.
+                </p>
+
+                {/* GitHub Link */}
+                <a 
+                  href="https://github.com/MatteoRobbiati/inkscape-drawings" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center text-[#4e7ccc] hover:underline font-semibold mt-4"
+                >
+                  <FaGithub className="mr-2" /> View on GitHub
+                </a>
+              </div>
+            </div>
+
+            {/* LaTeX Files Card */}
+            <div 
+              className="relative rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105 border border-gray-800 dark:border-gray-600"
+              style={{
+                backgroundImage: "url('/images/latex-bg.jpg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            >
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black opacity-15 dark:opacity-20"></div>
+              
+              {/* Card Content */}
+              <div className="relative flex flex-col justify-between h-full p-6 text-black dark:text-white">
+                {/* Title with Icon */}
+                <div className="flex items-center mb-2">
+                  <SiLatex className="text-[#4e7ccc] mr-2" size={24} />
+                  <h3 className="text-xl font-semibold">LaTeX Texting</h3>
+                </div>
+
+                {/* Description */}
+                <p className="text-md opacity-90">
+                  Repository of LaTeX files used for typesetting documents, research papers, and presentations with professional formatting.
+                </p>
+
+                {/* GitHub Link */}
+                <a 
+                  href="https://github.com/MatteoRobbiati/LaTeX-files" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center text-[#4e7ccc] hover:underline font-semibold mt-4"
+                >
+                  <FaGithub className="mr-2" /> View on GitHub
+                </a>
+              </div>
+            </div>
+
+          </div>
 
 
           {/* Contacts Section */}
