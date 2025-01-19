@@ -35,7 +35,7 @@
           <div className="bg-white dark:bg-gray-700 rounded-lg shadow-xl p-6 mb-8 border-2 border-gray-400 dark:border-gray-600">
             <p className="text-center text-lg text-gray-600 dark:text-gray-300">
               Quantum Computing 🔹 Quantum Machine Learning 🔹 Machine Learning 🔹 Optimization 🔹 Numerical Physics 🔹
-              Full-stack computation 🔹 Middleware development
+              Full-stack Computation 🔹 Middleware Development
             </p>
           </div>
 
