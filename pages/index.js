@@ -333,7 +333,7 @@
           <section id="contacts" className="mt-16 p-8">
             <h2 className="text-2xl font-bold mb-4 text-center">Contact Me</h2>
             <div className="flex justify-center space-x-8 mt-4">
-              <a href="matteo.robbiati@cern.ch" className="text-gray-500 hover:text-blue-500">
+              <a href="mailto:matteo.robbiati@cern.ch" className="text-gray-500 hover:text-blue-500">
                 <i className="fas fa-envelope fa-2x"></i>
               </a>
               <a href="https://www.linkedin.com/in/matteo-robbiati-43ab05209/" className="text-gray-500 hover:text-blue-500">
