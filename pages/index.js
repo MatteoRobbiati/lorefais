@@ -49,6 +49,14 @@
                 <li className="flex items-start space-x-4">
                   <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">🗞</div>
                   <div>
+                    <span className="italic">"Simulating Bell inequalities with Qibo"</span>, 
+                    I. Masina et al.
+                    <a href="https://arxiv.org/abs/2501.01434" className="text-[#4e7ccc] hover:underline ml-2">Eur. J. Phys. 46 035401</a>
+                  </div>
+                </li>
+                <li className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">🗞</div>
+                  <div>
                     <span className="italic">"Determining probability density functions with adiabatic quantum computing"</span>, 
                     M. Robbiati, J. M. Cruz-Martinez, S. Carrazza, <span className="italic">2025</span>,
                     <a href="https://link.springer.com/article/10.1007/s42484-024-00228-2#citeas" className="text-[#4e7ccc] hover:underline ml-2">Quantum Mach. Intell. 7, 5.</a>
@@ -106,14 +114,6 @@
                     <span className="italic">"Qibocal: an open-source framework for calibration of self-hosted quantum devices"</span>, 
                     A. Pasquale et al.
                     <a href="https://arxiv.org/abs/2410.00101" className="text-[#4e7ccc] hover:underline ml-2">arXiv:2410.00101</a>
-                  </div>
-                </li>
-                <li className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">📝</div>
-                  <div>
-                    <span className="italic">"Simulating Bell inequalities with Qibo"</span>, 
-                    I. Masina et al.
-                    <a href="https://arxiv.org/abs/2501.01434" className="text-[#4e7ccc] hover:underline ml-2">arXiv:2501.01434</a>
                   </div>
                 </li>
               </ul>
@@ -203,7 +203,7 @@
               {/* Right Box - Course 3 */}
               <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-lg">
                 <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">PyHEP, 2024</h3>
-                <p className="text-md text-gray-700 dark:text-gray-300 mb-4">Quantum Machine Learning in High Energy Physics with Qibo</p>
+                <p className="text-md text-gray-700 dark:text-gray-300 mb-4">Quantum Machine Learning in High Energy Physics</p>
                 {/* Embed the video for Course 2 */}
                 <div className="flex justify-center w-full">
                   <div className="relative w-11/12 pb-[56.25%]"> {/* 56.25% is the aspect ratio for 16:9 */}
