@@ -95,6 +95,14 @@
                 <li className="flex items-start space-x-4">
                   <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">📝</div>
                   <div>
+                    <span className="italic">"Towards a Global Search for New Physics with Isotope Shifts"</span>, 
+                    E. Fuchs, F. Kirk, A. Mariotti, J. Richter and M. Robbiati
+                    <a href="https://arxiv.org/abs/2506.07303" className="text-[#4e7ccc] hover:underline ml-2">arXiv:2506.07303</a>
+                  </div>
+                </li>
+                <li className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 text-2xl text-[#4e7ccc]">📝</div>
+                  <div>
                     <span className="italic">"Real-time error mitigation for variational optimization on quantum hardware"</span>, 
                     M. Robbiati et al.
                     <a href="https://arxiv.org/abs/2311.05680" className="text-[#4e7ccc] hover:underline ml-2">arXiv:2311.05680</a>
