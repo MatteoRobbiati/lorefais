@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matteo Robbiati | Lorefais</title>
+    
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      /* STRICT Persian Blue Palette */
+      --persian-blue: #1C39BB;
+      --persian-blue-dark: #152b8d;
+      --pastel-blue: #f4f7ff;
+      --pastel-blue-accent: #b0c0ff79;
+      --text-main: #2c3e50;
+      --text-muted: #5a6a7a;
+      --section-reveal-bg: rgba(28, 57, 187, 0.06);
+      --card-bg: #b3c0eb5e; /* Visibly darker than the pastel-blue background */
+    }
+
+    [data-bs-theme="dark"] {
+      --pastel-blue: #1a1e2e;
+      --pastel-blue-accent: #2a324d;
+      --persian-blue: #7c94ff;
+      --persian-blue-dark: #1C39BB;
+      --text-main: #5a7c9e;
+      --section-reveal-bg: rgba(255, 255, 255, 0.05);
+      --card-bg: #1e2436;
+    }
+
+    body { 
+      font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .btn-custom {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 10px;
+      padding: 0.7rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-toggle-fixed {
+      width: 260px;
+    }
+
+    .btn-persian {
+      background-color: var(--persian-blue);
+      color: #ffffff !important;
+      border: 1px solid var(--persian-blue);
+    }
+
+    .btn-persian:hover {
+      background-color: var(--persian-blue-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(28, 57, 187, 0.25);
+    }
+
+    .btn-outline-persian {
+      background-color: transparent;
+      color: var(--persian-blue) !important;
+      border: 2px solid var(--persian-blue);
+    }
+
+    .btn-outline-persian:hover {
+      background-color: var(--persian-blue);
+      color: #ffffff !important;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(28, 57, 187, 0.15);
+    }
+
+    .navbar { 
+      background-color: var(--persian-blue-dark) !important; 
+      padding: 0.8rem 0;
+    }
+    .navbar-brand, .nav-link { 
+      color: #ffffff !important; 
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .hero-section { padding: 8rem 0; background-color: var(--pastel-blue); }
+    .section-border-top {
+      border-top: 1px solid var(--pastel-blue-accent);
+      padding: 8rem 0; 
+    }
+    .bg-alternate { background-color: var(--pastel-blue); }
+
+    .profile-img { 
+      width: 260px; 
+      height: 260px; 
+      object-fit: cover; 
+      border: 6px solid white; 
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12); 
+    }
+
+    h1 { font-size: 3.2rem; letter-spacing: -1px; }
+    .hero-sub { color: var(--persian-blue); font-size: 1.5rem; font-weight: 400; }
+    .hero-desc { font-size: 1.3rem; color: var(--text-muted); }
+
+    .project-card { 
+      border: 1px solid var(--pastel-blue-accent);
+      border-radius: 24px; 
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+      background: var(--card-bg); /* Darker card background */
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-card:hover { 
+      transform: translateY(-12px); 
+      box-shadow: 0 30px 60px rgba(28, 57, 187, 0.12);
+      border-color: var(--persian-blue);
+    }
+    
+    .project-card h4 { 
+      color: var(--persian-blue) !important; 
+      margin-bottom: 1.5rem; 
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+
+    .pub-card { 
+      padding: 1rem; 
+      border-left: 6px solid var(--persian-blue); 
+      background: var(--bs-body-bg);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      border-radius: 0 16px 16px 0;
+    }
+
+    .flex-column { flex-direction: column !important; }
+
+    .theme-toggle { cursor: pointer; color: white; font-size: 1.2rem; }
+
+    .collapsible-content {
+      display: none;
+      padding: 2rem;
+      background-color: var(--section-reveal-bg);
+      border-radius: 20px;
+      border: 1px solid var(--pastel-blue-accent);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#about">
+        <i class="fas fa-home me-2"></i>Home
+        </a>    
+        <div class="d-flex align-items-center order-lg-last ms-3">
+        <div class="theme-toggle me-3" onclick="toggleTheme()">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </div>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#software">Software</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#videos">Talks</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="graphic.html">Graphic</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header id="about" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center text-center text-lg-start">
+        <div class="col-lg-4 mb-5 mb-lg-0 d-flex justify-content-center">
+          <img src="public/me.jpg" class="rounded-circle profile-img" alt="Matteo Robbiati">
+        </div>
+        <div class="col-lg-8 ps-lg-5">
+          <h1 class="fw-bold mb-1">Hi, Matteo here 👋🏼</h1>
+          <p class="hero-sub mb-4">Postdoctoral Researcher in Quantum Computing</p>
+          <p class="hero-desc mb-4">
+            I am a postdoctoral researcher in the <strong>QC2 Lab</strong> at Chalmers 
+            University of Technology in Göteborg, Sweden 🇸🇪
+          </p>
+
+        <div class="d-flex justify-content-center justify-content-lg-start gap-3 mt-4">
+            <a href="https://github.com/matteorobbiati" class="btn-custom btn-persian">
+                <i class="fab fa-github"></i> GitHub Profile
+            </a>
+            <a href="public/cv.pdf" class="btn-custom btn-outline-persian">
+                <i class="fas fa-file-pdf"></i> Resume / CV
+            </a>
+            <a href="https://inspirehep.net/files/94e31c89a1f0c43aaf83f4c3905874fd" class="btn-custom btn-outline-persian">
+                <i class="fas fa-graduation-cap"></i> PhD Thesis
+            </a>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="software" class="section-border-top">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-5">Software Projects</h2>
+        <p class="text-muted">Open-source contributions and development</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">Qibo</h4>
+            <p class="text-muted mb-4">Classical simulation of quantum computing with hardware acceleration.</p>
+            <a href="https://github.com/qiboteam/qibo" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">Qibolab</h4>
+            <p class="text-muted mb-4">Control module for quantum hardware, bridging algorithms to pulses.</p>
+            <a href="https://github.com/qiboteam/qibolab" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">Qibocal</h4>
+            <p class="text-muted mb-4">Automated tools for calibration and characterization of quantum processors.</p>
+            <a href="https://github.com/qiboteam/qibocal" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">Qiboml</h4>
+            <p class="text-muted mb-4">Quantum-classical machine learning integration library.</p>
+            <a href="https://github.com/qiboteam/qiboml" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">Qiboedu</h4>
+            <p class="text-muted mb-4">Quantum computing educational material: an hands-on introductory course.</p>
+            <a href="https://github.com/qiboteam/qiboedu" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-border-top bg-alternate">
+    
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-5">Project-related software solutions</h2>
+        <p class="text-muted">The following project cards are linking to software projects which have been implemented 
+           to support publications or exams. They may be not mantained. 
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">Kifit</h4>
+            <p class="text-muted mb-4">Searching for New Physics with (Non-)Linear King Plots.</p>
+            <a href="https://github.com/QTI-TH/kifit" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">RTQEM</h4>
+            <p class="text-muted mb-4">Real-time quantum error mitigation for variational optimization on quantum hardware.</p>
+            <a href="https://github.com/qiboteam/rtqem" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">QiNNtegrate</h4>
+            <p class="text-muted mb-4">Multi-dimensional integration with variational quantum circuits.</p>
+            <a href="https://github.com/qiboteam/rtqem" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">PyEXORCISM</h4>
+            <p class="text-muted mb-4">A Python implementation of a (dummy) EXORCISM algorithm for boolean functions synthesis.</p>
+            <a href="https://github.com/MatteoRobbiati/pyexorcism" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">VQExDBQA</h4>
+            <p class="text-muted mb-4">Interfacing VQEs with double-bracket quantum algorithms for high-fidelity ground state preparation.</p>
+            <a href="https://github.com/qiboteam/boostvqe" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="publications" class="section-border-top">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-5">Publications</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          
+          <h6 class="text-muted mb-4 text-uppercase fw-bold letter-spacing-1">Published Papers</h6>
+
+          <div class="pub-card">
+            <h5 class="fw-bold mb-2">Towards a Global Search for New Physics with Isotope Shifts</h5>
+            <p class="text-muted mb-4">Elina Fuchs, Fiona Kirk, Agnese Mariotti, Jan Richter, Matteo Robbiati</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://doi.org/10.1103/kzq9-x916" class="btn-custom btn-persian btn-sm px-4">
+                <i class="fas fa-link"></i> DOI
+              </a>
+              <a href="https://arxiv.org/abs/2506.07303" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-alt"></i> arXiv
+              </a>
+            </div>
+          </div>
+
+          <div class="pub-card">
+            <h5 class="fw-bold mb-2">Simulating Bell inequalities with Qibo</h5>
+            <p class="text-muted mb-4">Isabella Masina, Giuseppe Lo Presti, Matteo Robbiati, Michele Grossi</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://iopscience.iop.org/article/10.1088/1361-6404/adcd13" class="btn-custom btn-persian btn-sm px-4">
+                <i class="fas fa-link"></i> DOI
+              </a>
+              <a href="https://arxiv.org/abs/2501.01434" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-alt"></i> arXiv
+              </a>
+            </div>
+          </div>
+
+          <div class="pub-card">
+            <h5 class="fw-bold mb-2">Characterization of a Transmon Qubit in a 3D Cavity for Quantum Machine Learning and Photon Counting</h5>
+            <p class="text-muted mb-4"> Alessandro D'Elia, Boulos Alfakes, Anas Alkhazaleh, Leonardo Banchi, Matteo Beretta, Stefano Carrazza, Fabio Chiarello, Daniele Di Gioacchino, Andrea Giachero, Felix Henrich, Alex Stephane Piedjou Komnang, Carlo Ligi, Giovanni Maccarrone, Massimo Macucci, Emanuele Palumbo, Andrea Pasquale, Luca Piersanti, Florent Ravaux, Alessio Rettaroli, Matteo Robbiati, Simone Tocci, Claudio Gatti </p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://doi.org/10.3390/app14041478" class="btn-custom btn-persian btn-sm px-4">
+                <i class="fas fa-link"></i> DOI
+              </a>
+              <a href="https://arxiv.org/abs/2402.04322" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-alt"></i> arXiv
+              </a>
+            </div>
+          </div>
+
+          <div class="pub-card">
+            <h5 class="fw-bold mb-2">Real-time error mitigation for variational optimization on quantum hardware</h5>
+            <p class="text-muted mb-4"> Matteo Robbiati, Alejandro Sopena, Andrea Papaluca, Stefano Carrazza</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#" class="btn-custom btn-persian btn-sm px-4">
+                <i class="fas fa-link"></i> DOI
+              </a>
+              <a href="https://arxiv.org/abs/2311.05680" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-alt"></i> arXiv
+              </a>
+            </div>
+          </div>
+
+          <div class="pub-card">
+            <h5 class="fw-bold mb-2">Qibolab: an open-source hybrid quantum operating system</h5>
+            <p class="text-muted mb-4">Stavros Efthymiou, Alvaro Orgaz-Fuertes, Rodolfo Carobene, Juan Cereijo, Andrea Pasquale, Sergi Ramos-Calderer, Simone Bordoni, David Fuentes-Ruiz, Alessandro Candido, Edoardo Pedicillo, Matteo Robbiati, Yuanzheng Paul Tan, Jadwiga Wilkens, Ingo Roth, José Ignacio Latorre, Stefano Carrazza</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://doi.org/10.22331/q-2024-02-12-1247" class="btn-custom btn-persian btn-sm px-4">
+                <i class="fas fa-link"></i> DOI
+              </a>
+              <a href="https://arxiv.org/abs/2308.06313" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-alt"></i> arXiv
+              </a>
+            </div>
+          </div>
+
+          <div class="pub-card">
+            <h5 class="fw-bold mb-2">Multi-variable integration with a variational quantum circuit</h5>
+            <p class="text-muted mb-4">Juan M. Cruz-Martinez, Matteo Robbiati, Stefano Carrazza</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://doi.org/10.1088/2058-9565/ad5866" class="btn-custom btn-persian btn-sm px-4">
+                <i class="fas fa-link"></i> DOI
+              </a>
+              <a href="https://arxiv.org/abs/2308.05657" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-alt"></i> arXiv
+              </a>
+            </div>
+          </div>
+
+          <div class="pub-card">
+            <h5 class="fw-bold mb-2">Determining probability density functions with adiabatic quantum computing</h5>
+            <p class="text-muted mb-4">Matteo Robbiati, Juan M. Cruz-Martinez, Stefano Carrazza</p>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="https://doi.org/10.1007/s42484-024-00228-2" class="btn-custom btn-persian btn-sm px-4">
+                <i class="fas fa-link"></i> DOI
+              </a>
+              <a href="https://arxiv.org/abs/2303.11346" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-alt"></i> arXiv
+              </a>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-between mt-5 mb-4 flex-wrap gap-3">
+            <h6 class="text-muted mb-0 text-uppercase fw-bold letter-spacing-1">Preprints</h6>
+            <button id="btn-preprints" class="btn-custom btn-outline-persian btn-sm btn-toggle-fixed" onclick="toggleSection('preprints-list', 'btn-preprints', 'preprints list')">
+                show preprints
+            </button>
+          </div>
+
+          <div id="preprints-list" class="collapsible-content">
+            <div class="pub-card">
+              <h5 class="fw-bold mb-2">Qiboml: towards the orchestration of quantum-classical machine learning</h5>
+              <p class="text-muted mb-4">Matteo Robbiati, Andrea Papaluca, Andrea Pasquale, Edoardo Pedicillo, Renato M. S. Farias, Alejandro Sopena, Mattia Robbiano, Ghaith Alramahi, Simone Bordoni, Alessandro Candido, Niccolò Laurora, Jogi Suda Neto, Yuanzheng Paul Tan, Michele Grossi, Stefano Carrazza</p>
+              <a href="https://arxiv.org/abs/2510.11773" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-pdf"></i> arXiv Link
+              </a>
+            </div>
+            <div class="pub-card">
+              <h5 class="fw-bold mb-2">Qibocal: an open-source framework for calibration of self-hosted quantum devices</h5>
+              <p class="text-muted mb-4">Andrea Pasquale, Edoardo Pedicillo, Juan Cereijo, Sergi Ramos-Calderer, Alessandro Candido, Gabriele Palazzo, Rodolfo Carobene, Marco Gobbo, Stavros Efthymiou, Yuanzheng Paul Tan, Ingo Roth, Matteo Robbiati, Jadwiga Wilkens, Alvaro Orgaz-Fuertes, David Fuentes-Ruiz, Andrea Giachero, Frederico Brito, José Ignacio Latorre, Stefano Carrazza</p>
+              <a href="https://arxiv.org/abs/2410.00101" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-pdf"></i> arXiv Link
+              </a>
+            </div>
+            <div class="pub-card">
+              <h5 class="fw-bold mb-2"> Double-bracket quantum algorithms for high-fidelity ground state preparation</h5>
+              <p class="text-muted mb-4"> <u> Matteo Robbiati</u>, Edoardo Pedicillo, Andrea Pasquale, Xiaoyue Li, Oriel Kiss, Andrew Wright, Renato M. S. Farias, Khanh Uyen Giang, Jeongrak Son, Johannes Knörzer, Siong Thye Goh, Jun Yong Khoo, Nelly H. Y. Ng, Zoë Holmes, Stefano Carrazza, Marek Gluza</p>
+              <a href="https://arxiv.org/abs/2408.03987" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-file-pdf"></i> arXiv Link
+              </a>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-between mt-5 mb-4 flex-wrap gap-3">
+            <h6 class="text-muted mb-0 text-uppercase fw-bold letter-spacing-1">Proceedings of Science</h6>
+            <button id="btn-proceedings" class="btn-custom btn-outline-persian btn-sm btn-toggle-fixed" onclick="toggleSection('proceedings-list', 'btn-proceedings', 'proceedings of science')">
+                show proceedings of science
+            </button>
+          </div>
+
+          <div id="proceedings-list" class="collapsible-content">
+            <div class="pub-card">
+              <h5 class="fw-bold mb-2">Strategies for optimizing double-bracket quantum algorithms</h5>
+              <p class="text-muted mb-4">Li Xiaoyue, Matteo Robbiati, Andrea Pasquale, Edoardo Pedicillo, Andrew Wright, Stefano Carrazza, Marek Gluza</p>
+              <a href="https://arxiv.org/abs/2408.07431" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-book-open"></i> View PoS
+              </a>
+            </div>
+            <div class="pub-card">
+              <h5 class="fw-bold mb-2">Beyond full statevector simulation with Qibo</h5>
+              <p class="text-muted mb-4">Andrea Pasquale, Andrea Papaluca, Renato M. S. Farias, Matteo Robbiati, Edoardo Pedicillo, Stefano Carrazza</p>
+              <a href="https://arxiv.org/abs/2408.00384" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-book-open"></i> View PoS
+              </a>
+            </div>
+            <div class="pub-card">
+              <h5 class="fw-bold mb-2">An open-source framework for quantum hardware control</h5>
+              <p class="text-muted mb-4">Edoardo Pedicillo, Alessandro Candido, Stavros Efthymiou, Hayk Sargsyan, Yuanzheng Paul Tan, Juan Cereijo, Jun Yong Khoo, Andrea Pasquale, Matteo Robbiati, Stefano Carrazza</p>
+              <a href="https://arxiv.org/abs/2407.21737" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-book-open"></i> View PoS
+              </a>
+            </div>
+            <div class="pub-card">
+              <h5 class="fw-bold mb-2">A quantum analytical Adam descent through parameter shift rule using Qibo</h5>
+              <p class="text-muted mb-4">Matteo Robbiati, Stavros Efthymiou, Andrea Pasquale, Stefano Carrazza</p>
+              <a href="https://arxiv.org/abs/2210.10787" class="btn-custom btn-outline-persian btn-sm px-4">
+                <i class="fas fa-book-open"></i> View PoS
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos" class="section-border-top bg-alternate">
+    <div class="container text-center">
+      <h2 class="fw-bold display-5 mb-5">Talks & Lectures</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6">
+          <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg border">
+            <iframe src="https://www.youtube.com/embed/tOXnRWNpjns" title="Talk 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="mt-4 fs-5 fw-bold">Singapore, 2024</p>
+        </div>
+        <div class="col-md-6">
+          <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg border">
+            <iframe src="https://www.youtube.com/embed/fPtyVs6uXPM?list=PLg0_ydgtbHGFmY8oxvHZdluUFFt874_yv" title="Talk 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="mt-4 fs-5 fw-bold">São Paulo, 2024</p>
+        </div>
+        <div class="col-md-6">
+          <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg border">
+            <iframe src="https://www.youtube.com/embed/AprLJjXI_PI" title="Talk 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="mt-4 fs-5 fw-bold">PyHep, 2024</p>
+        </div>
+        <div class="col-md-6">
+          <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-lg border">
+            <iframe src="https://www.youtube.com/embed/vlos9LvM80Q?" title="Talk 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <p class="mt-4 fs-5 fw-bold">CERN, 2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section id="contact" class="section-border-top">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-5">Contact</h2>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-3 col-md-2 text-center">
+          <a href="mailto:robbiati@chalmers.se" class="btn-custom btn-outline-persian py-4 w-100" title="Email">
+            <i class="fas fa-envelope fa-2x"></i>
+          </a>
+        </div>
+        <div class="col-3 col-md-2 text-center">
+          <a href="https://www.linkedin.com/in/matteo-robbiati-43ab05209/" target="_blank" class="btn-custom btn-outline-persian py-4 w-100" title="LinkedIn">
+            <i class="fab fa-linkedin fa-2x"></i>
+          </a>
+        </div>
+        <div class="col-3 col-md-2 text-center">
+          <a href="https://github.com/matteorobbiati" target="_blank" class="btn-custom btn-outline-persian py-4 w-100" title="GitHub">
+            <i class="fab fa-github fa-2x"></i>
+          </a>
+        </div>
+        <div class="col-3 col-md-2 text-center">
+          <a href="https://scholar.google.com/citations?user=DYyhruMAAAAJ&hl=it" target="_blank" class="btn-custom btn-outline-persian py-4 w-100" title="Google Scholar">
+            <i class="fas fa-graduation-cap fa-2x"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-5 border-top bg-alternate">
+    <div class="container text-center text-muted">
+      <p class="mb-0 fs-5">&copy; Made with 🫶🏼 by Lorefais.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById('themeIcon');
+      if (html.getAttribute('data-bs-theme') === 'light') {
+        html.setAttribute('data-bs-theme', 'dark');
+        icon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        html.setAttribute('data-bs-theme', 'light');
+        icon.classList.replace('fa-sun', 'fa-moon');
+      }
+    }
+
+    function toggleSection(sectionId, btnId, label) {
+      const section = document.getElementById(sectionId);
+      const btn = document.getElementById(btnId);
+      
+      if (section.style.display === "block") {
+        section.style.display = "none";
+        btn.innerHTML = "show " + label;
+      } else {
+        section.style.display = "block";
+        btn.innerHTML = "hide " + label;
+      }
+    }
+  </script>
+</body>
+</html>
