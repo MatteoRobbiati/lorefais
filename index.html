@@ -158,6 +158,58 @@
       margin-bottom: 2rem;
     }
 
+    .news-banner {
+      background: linear-gradient(135deg, #FFF9C4 0%, #FFECB3 100%);
+      color: #2c3e50;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-weight: 700;
+      border-bottom: 5px solid #FFD700;
+      animation: slideDown 0.5s ease-out;
+      box-shadow: 0 4px 15px rgba(255, 217, 0, 0.3);
+    }
+
+    .news-banner a {
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 0.5rem;
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      background-color: rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .news-banner a:hover {
+      background-color: rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .news-banner i {
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
     /* /* Update your existing @media (max-width: 768px) block */
 @media (max-width: 768px) {
     h1 { font-size: 2.2rem; }
@@ -231,6 +283,10 @@
     </div>
   </nav>
 
+  <div class="news-banner">
+    🎉 <strong>News!</strong> 🚀 <a href="https://github.com/MatteoRobbiati/mpstab" target="_blank"><i class="fas fa-cube"></i> Mpstab Released</a> <strong>•</strong> <a href="https://www.qc2lab.com/internship.html" target="_blank"><i class="fas fa-briefcase"></i> Hiring Summer Student</a>
+  </div>
+
 <header id="about" class="hero-section">
   <div class="container">
     <div class="row align-items-center text-center text-lg-start">
@@ -253,7 +309,7 @@
           <a href="https://github.com/matteorobbiati" class="btn-custom btn-persian">
             <i class="fab fa-github"></i> <span>GitHub Profile</span>
           </a>
-          <a href="public/cv.pdf" class="btn-custom btn-outline-persian">
+          <a href="cv.html" class="btn-custom btn-outline-persian">
             <i class="fas fa-file-pdf"></i> <span>Resume / CV</span>
           </a>
           <a href="https://inspirehep.net/files/94e31c89a1f0c43aaf83f4c3905874fd" class="btn-custom btn-outline-persian">
@@ -318,6 +374,16 @@
             <h4 class="fw-bold">Qiboedu</h4>
             <p class="text-muted mb-4">Quantum computing educational material: an hands-on introductory course.</p>
             <a href="https://github.com/qiboteam/qiboedu" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card h-100 project-card text-center">
+            <h4 class="fw-bold">Mpstab</h4>
+            <p class="text-muted mb-4">Hybrid Stabilizers-MPO quantum circuit simulator.</p>
+            <a href="https://github.com/MatteoRobbiati/mpstab" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
           </div>
@@ -452,7 +518,7 @@
             <h5 class="fw-bold mb-2">Real-time error mitigation for variational optimization on quantum hardware</h5>
             <p class="text-muted mb-4"> Matteo Robbiati, Alejandro Sopena, Andrea Papaluca, Stefano Carrazza</p>
             <div class="d-flex flex-wrap gap-2">
-              <a href="#" class="btn-custom btn-persian btn-sm px-4">
+              <a href="https://doi.org/10.1103/zyb2-zl2d" class="btn-custom btn-persian btn-sm px-4">
                 <i class="fas fa-link"></i> DOI
               </a>
               <a href="https://arxiv.org/abs/2311.05680" class="btn-custom btn-outline-persian btn-sm px-4">

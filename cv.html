@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matteo Robbiati - CV</title>
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --persian-blue: #1C39BB;
+      --persian-blue-dark: #152b8d;
+      --pastel-blue: #f4f7ff;
+      --pastel-blue-accent: #b0c0ff79;
+      --text-main: #2c3e50;
+      --text-muted: #5a6a7a;
+    }
+
+    [data-bs-theme="dark"] {
+      --pastel-blue: #1a1e2e;
+      --pastel-blue-accent: #2a324d;
+      --persian-blue: #7c94ff;
+      --persian-blue-dark: #1C39BB;
+      --text-main: #5a7c9e;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+      background-color: var(--pastel-blue);
+      font-size: 1.05rem;
+    }
+
+    .navbar {
+      background-color: var(--persian-blue-dark) !important;
+      padding: 0.8rem 0;
+    }
+
+    .navbar-brand, .nav-link {
+      color: #ffffff !important;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .cv-header {
+      background: linear-gradient(135deg, var(--persian-blue) 0%, var(--persian-blue-dark) 100%);
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 3rem;
+    }
+
+    .cv-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .cv-header .title {
+      font-size: 1.5rem;
+      opacity: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .cv-header .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .cv-header a {
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .cv-header a:hover {
+      border-bottom-color: white;
+      opacity: 0.9;
+    }
+
+    .cv-section {
+      margin-bottom: 2rem;
+    }
+
+    .cv-section h2 {
+      color: var(--persian-blue);
+      font-size: 1.9rem;
+      font-weight: 700;
+      border-bottom: 3px solid var(--persian-blue);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .cv-entry {
+      margin-bottom: 1.3rem;
+      padding-left: 1rem;
+      border-left: 4px solid var(--pastel-blue-accent);
+      transition: all 0.3s ease;
+    }
+
+    .cv-entry:hover {
+      border-left-color: var(--persian-blue);
+      background-color: rgba(28, 57, 187, 0.02);
+      padding-left: 1.5rem;
+    }
+
+    .cv-entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cv-entry-title {
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 1.15rem;
+    }
+
+    .cv-entry-subtitle {
+      color: var(--persian-blue);
+      font-weight: 600;
+    }
+
+    .cv-entry-date {
+      color: var(--text-muted);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cv-entry-description {
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .cv-entry-details {
+      margin-top: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .skill-category {
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-category-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      background-color: var(--pastel-blue-accent);
+      color: var(--persian-blue);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      border: 1px solid var(--pastel-blue-accent);
+    }
+
+    .pub-item {
+      margin-bottom: 1.2rem;
+      padding: 0.9rem;
+      background-color: rgba(28, 57, 187, 0.02);
+      border-left: 4px solid var(--persian-blue);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .pub-title {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+      font-size: 1.05rem;
+    }
+
+    .pub-authors {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-journal {
+      color: var(--persian-blue);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    .collapsible-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 1rem;
+      background-color: rgba(28, 57, 187, 0.08);
+      border-radius: 12px;
+      border: 1.5px solid var(--pastel-blue-accent);
+      transition: all 0.3s ease;
+      margin-bottom: 1rem;
+    }
+
+    .collapsible-header:hover {
+      background-color: rgba(28, 57, 187, 0.15);
+      border-color: var(--persian-blue);
+      transform: translateX(5px);
+    }
+
+    .collapsible-header h3 {
+      margin: 0;
+      color: var(--persian-blue);
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .collapsible-toggle {
+      color: var(--persian-blue);
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .collapsible-toggle.open {
+      transform: rotate(180deg);
+    }
+
+    .collapsible-content {
+      display: none;
+      animation: slideDown 0.3s ease;
+    }
+
+    .collapsible-content.open {
+      display: block;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cv-header h1 { font-size: 1.8rem; }
+      .cv-header .title { font-size: 1.1rem; }
+      .cv-header .contact-list { gap: 0.75rem; flex-direction: column; }
+      .cv-entry-header { flex-direction: column; }
+      .cv-entry-date { margin-top: 0.5rem; }
+    }
+
+    .btn-custom {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 10px;
+      padding: 0.7rem 1.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-persian {
+      background-color: var(--persian-blue);
+      color: #ffffff !important;
+      border: 1px solid var(--persian-blue);
+    }
+
+    .btn-persian:hover {
+      background-color: var(--persian-blue-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(28, 57, 187, 0.25);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="fas fa-home me-2"></i>Home
+      </a>
+      <div class="d-flex align-items-center order-lg-last ms-3">
+        <div class="theme-toggle me-3" onclick="toggleTheme()">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </div>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="cv-header">
+    <div class="container">
+      <h1>Matteo Robbiati</h1>
+      <p class="title">Postdoctoral Researcher in Quantum Computing</p>
+      <div class="contact-list">
+        <span><i class="fas fa-envelope me-2"></i><a href="mailto:robbiati@chalmers.se">robbiati@chalmers.se</a></span>
+        <span><i class="fas fa-globe me-2"></i><a href="https://www.matteorobbiati.com" target="_blank">matteorobbiati.com</a></span>
+        <span><i class="fas fa-phone me-2"></i>(+39) 338 754 4137</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container pb-5">
+
+    <!-- Summary -->
+    <div class="cv-section">
+      <h2><i class="fas fa-briefcase"></i> Summary</h2>
+      <p>Postdoctoral researcher in quantum computing at the QC2 Lab at Chalmers University of Technology in Göteborg, Sweden. Ph.D. in Physics from CERN with expertise in quantum machine learning, error mitigation, and quantum algorithm development. Core developer of the Qibo open-source quantum computing framework. Experienced in developing and maintaining full-stack quantum computing platforms and educational materials for diverse user skill levels.</p>
+    </div>
+
+    <!-- Experience -->
+    <div class="cv-section">
+      <h2><i class="fas fa-suitcase"></i> Experience</h2>
+      
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Postdoctoral Researcher in Quantum Computing</div>
+            <div class="cv-entry-subtitle">QC2 Lab, Chalmers University of Technology</div>
+          </div>
+          <div class="cv-entry-date">2025 - present</div>
+        </div>
+        <div class="cv-entry-description">Göteborg, Sweden</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Doctoral Researcher</div>
+            <div class="cv-entry-subtitle">European Organization for Nuclear Research (CERN)</div>
+          </div>
+          <div class="cv-entry-date">2022 - 2025</div>
+        </div>
+        <div class="cv-entry-description">Funded by CERN's Quantum Technology Initiative, supervised by the theoretical physics group of the University of Milan. Worked on quantum machine learning algorithms applied to integration, error mitigation, multi-dimensional regression and ground state preparation. Contributed to the development and maintenance of open-source, full-stack frameworks for quantum computing as part of the Qibo collaboration.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Private Teaching</div>
+            <div class="cv-entry-subtitle">Mathematics and Physics</div>
+          </div>
+          <div class="cv-entry-date">2016 - 2022</div>
+        </div>
+        <div class="cv-entry-description">Private teaching of mathematics and physics to high school students.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Research and Data Analysis</div>
+            <div class="cv-entry-subtitle">La Valle di Ezechiele Cooperative</div>
+          </div>
+          <div class="cv-entry-date">2021</div>
+        </div>
+        <div class="cv-entry-description">Investigated how work outside prison can help reduce prisoners' re-offending rate. Examined case studies on the use of social impact bonds to support employment opportunities for ex-prisoners.</div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="cv-section">
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Ph.D. in Physics</div>
+            <div class="cv-entry-subtitle">European Organization for Nuclear Research (CERN), Switzerland</div>
+          </div>
+          <div class="cv-entry-date">2022 - 2025</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Master Degree in Physics</div>
+            <div class="cv-entry-subtitle">University of Milan, Italy</div>
+          </div>
+          <div class="cv-entry-date">2019 - 2022</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Bachelor Degree in Physics</div>
+            <div class="cv-entry-subtitle">University of Milan, Italy</div>
+          </div>
+          <div class="cv-entry-date">2015 - 2019</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="cv-section">
+      <h2><i class="fas fa-tools"></i> Skills</h2>
+      
+      <div class="skill-category">
+        <div class="skill-category-title">Programming Languages</div>
+        <div class="skill-list">
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">C/C++</span>
+          <span class="skill-badge">JavaScript</span>
+          <span class="skill-badge">HTML</span>
+          <span class="skill-badge">Bash</span>
+          <span class="skill-badge">Next.js</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-category-title">Quantum & Data Science Frameworks</div>
+        <div class="skill-list">
+          <span class="skill-badge">Qibo</span>
+          <span class="skill-badge">Qiboml</span>
+          <span class="skill-badge">NumPy</span>
+          <span class="skill-badge">PyTorch</span>
+          <span class="skill-badge">TensorFlow</span>
+          <span class="skill-badge">Qiskit</span>
+          <span class="skill-badge">Cirq</span>
+          <span class="skill-badge">PennyLane</span>
+          <span class="skill-badge">JAX</span>
+          <span class="skill-badge">Pandas</span>
+          <span class="skill-badge">Scikit-learn</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-category-title">Visualization & Tools</div>
+        <div class="skill-list">
+          <span class="skill-badge">Matplotlib</span>
+          <span class="skill-badge">Seaborn</span>
+          <span class="skill-badge">Plotly</span>
+          <span class="skill-badge">Inkscape</span>
+          <span class="skill-badge">Git</span>
+          <span class="skill-badge">SLURM</span>
+          <span class="skill-badge">Linux</span>
+          <span class="skill-badge">MacOS</span>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <div class="skill-category-title">Languages</div>
+        <div class="skill-list">
+          <span class="skill-badge">Italian (Native)</span>
+          <span class="skill-badge">English (Fluent)</span>
+          <span class="skill-badge">Spanish (Intermediate)</span>
+          <span class="skill-badge">French (Intermediate)</span>
+          <span class="skill-badge">Swedish (Beginner) </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Software Projects -->
+    <div class="cv-section">
+      <h2><i class="fas fa-cube"></i> Software Projects</h2>
+      
+      <h4 class="mt-4 mb-3" style="color: var(--persian-blue); font-weight: 700;">Community-driven Packages</h4>
+      
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="https://github.com/qiboteam/qibo" target="_blank" style="color: var(--persian-blue); text-decoration: none;">Qibo</a></div>
+        <div class="cv-entry-description">A full-stack framework for quantum computing with hardware acceleration and classical simulation capabilities. <span style="font-weight: 600;">Core developer</span>.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="https://github.com/qiboteam/qiboml" target="_blank" style="color: var(--persian-blue); text-decoration: none;">Qiboml</a></div>
+        <div class="cv-entry-description">A full-stack hybrid classical-quantum machine learning framework for quantum-classical integration. <span style="font-weight: 600;">Core developer</span>.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="https://github.com/qiboteam/qiboedu" target="_blank" style="color: var(--persian-blue); text-decoration: none;">Qiboedu</a></div>
+        <div class="cv-entry-description">Quantum computing educational activities and materials using Qibo for all skill levels. <span style="font-weight: 600;">Core developer</span>.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="https://github.com/qiboteam/qibolab" target="_blank" style="color: var(--persian-blue); text-decoration: none;">Qibolab</a></div>
+        <div class="cv-entry-description">Quantum hardware module and drivers for Qibo, bridging algorithms to quantum hardware. <span style="font-weight: 600;">Contributor</span>.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="https://github.com/qiboteam/qibocal" target="_blank" style="color: var(--persian-blue); text-decoration: none;">Qibocal</a></div>
+        <div class="cv-entry-description">Quantum calibration, characterization and validation module for Qibo. <span style="font-weight: 600;">Contributor</span>.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="https://github.com/qiboteam/mpstab" target="_blank" style="color: var(--persian-blue); text-decoration: none;">Mpstab</a></div>
+        <div class="cv-entry-description">Hybrid Stabilizers-MPO quantum circuit simulator. <span style="font-weight: 600;">Core developer</span>.</div>
+      </div>
+
+      <h4 class="mt-4 mb-3" style="color: var(--persian-blue); font-weight: 700;">Project-Specific Tools</h4>
+      
+      <div class="cv-entry">
+        <div class="cv-entry-title">QiNNtegrate</div>
+        <div class="cv-entry-description">Multi-variable numerical integration via quantum machine learning. <span style="font-weight: 600;">Core developer</span>.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Adiabatic-fit</div>
+        <div class="cv-entry-description">Probability density estimation via hybrid gate &amp; analog-based quantum computing. <span style="font-weight: 600;">Core developer</span>.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">RTQEM</div>
+        <div class="cv-entry-description">Real-time quantum error mitigation for variational optimization on quantum hardware. <span style="font-weight: 600;">Core developer</span>.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">BoostVQE</div>
+        <div class="cv-entry-description">Boosting ground-state preparation with double-bracket quantum algorithms. <span style="font-weight: 600;">Core developer</span>.</div>
+      </div>
+    </div>
+
+    <!-- Publications -->
+    <div class="cv-section">
+      <h2><i class="fas fa-book"></i> Publications</h2>
+
+      <h4 class="mt-4 mb-3" style="color: var(--persian-blue); font-weight: 700;">Peer-Reviewed</h4>
+
+      <div class="pub-item">
+        <div class="pub-title">Towards a Global Search for New Physics with Isotope Shifts</div>
+        <div class="pub-authors">Elina Fuchs, Fiona Kirk, Agnese Mariotti, Jan Richter, Matteo Robbiati</div>
+        <div class="pub-journal">2025</div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;"><a href="https://doi.org/10.1103/kzq9-x916" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-link"></i> DOI</a><a href="https://arxiv.org/abs/2506.07303" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-file-alt"></i> arXiv</a></div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Simulating Bell inequalities with Qibo</div>
+        <div class="pub-authors">Isabella Masina, Giuseppe Lo Presti, Matteo Robbiati, Michele Grossi</div>
+        <div class="pub-journal">European Journal of Physics, Vol. 46, 035401 (2025)</div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;"><a href="https://iopscience.iop.org/article/10.1088/1361-6404/adcd13" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-link"></i> DOI</a><a href="https://arxiv.org/abs/2501.01434" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-file-alt"></i> arXiv</a></div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Determining probability density functions with adiabatic quantum computing</div>
+        <div class="pub-authors">Matteo Robbiati, Juan M. Cruz-Martinez, Stefano Carrazza</div>
+        <div class="pub-journal">Quantum Machine Intelligence, Vol. 7, art. 5 (2025)</div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;"><a href="https://doi.org/10.1007/s42484-024-00228-2" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-link"></i> DOI</a><a href="https://arxiv.org/abs/2303.11346" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-file-alt"></i> arXiv</a></div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Qibolab: an open-source hybrid quantum operating system</div>
+        <div class="pub-authors">Stavros Efthymiou, Alvaro Orgaz-Fuertes, Rodolfo Carobene, Juan Cereijo, Andrea Pasquale, Sergi Ramos-Calderer, Simone Bordoni, David Fuentes-Ruiz, Alessandro Candido, Edoardo Pedicillo, Matteo Robbiati, Yuanzheng Paul Tan, Jadwiga Wilkens, Ingo Roth, José Ignacio Latorre, Stefano Carrazza</div>
+        <div class="pub-journal">Quantum, Vol. 8, 1247 (2024)</div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;"><a href="https://doi.org/10.22331/q-2024-02-12-1247" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-link"></i> DOI</a><a href="https://arxiv.org/abs/2308.06313" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-file-alt"></i> arXiv</a></div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Multi-variable integration with a variational quantum circuit</div>
+        <div class="pub-authors">Juan M. Cruz-Martinez, Matteo Robbiati, Stefano Carrazza</div>
+        <div class="pub-journal">Quantum Science and Technology, Vol. 9, 035053 (2024)</div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;"><a href="https://doi.org/10.1088/2058-9565/ad5866" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-link"></i> DOI</a><a href="https://arxiv.org/abs/2308.05657" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-file-alt"></i> arXiv</a></div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Characterization of a Transmon Qubit in a 3D Cavity for Quantum Machine Learning and Photon Counting</div>
+        <div class="pub-authors">Alessandro D'Elia, Boulos Alfakes, Anas Alkhazaleh, Leonardo Banchi, Matteo Beretta, Stefano Carrazza, Fabio Chiarello, Daniele Di Gioacchino, Andrea Giachero, Felix Henrich, A. Stephane Piedjou Komnang, Carlo Ligi, Giovanni Maccarrone, Massimo Macucci, Emanuele Palumbo, Andrea Pasquale, Luca Piersanti, Florent Ravaux, Alessio Rettaroli, Matteo Robbiati, Simone Tocci, Claudio Gatti</div>
+        <div class="pub-journal">Applied Sciences, Vol. 14(4), 1478 (2024)</div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;"><a href="https://doi.org/10.3390/app14041478" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-link"></i> DOI</a><a href="https://arxiv.org/abs/2402.04322" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-file-alt"></i> arXiv</a></div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Real-time error mitigation for variational optimization on quantum hardware</div>
+        <div class="pub-authors">Matteo Robbiati, Alejandro Sopena, Andrea Papaluca, Stefano Carrazza</div>
+        <div class="pub-journal">Quantum Machine Intelligence (2024)</div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;"><a href="https://doi.org/10.1103/zyb2-zl2d" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-link"></i> DOI</a><a href="https://arxiv.org/abs/2311.05680" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-file-alt"></i> arXiv</a></div>
+      </div>
+
+      <h4 class="mt-3 mb-3" style="color: var(--persian-blue); font-weight: 700;">Pre-Prints</h4>
+
+      <div class="pub-item">
+        <div class="pub-title">Qiboml: towards the orchestration of quantum-classical machine learning</div>
+        <div class="pub-authors">Matteo Robbiati, Andrea Papaluca, Andrea Pasquale, Edoardo Pedicillo, Renato M. S. Farias, Alejandro Sopena, Mattia Robbiano, Ghaith Alramahi, Simone Bordoni, Alessandro Candido, Niccolò Laurora, Jogi Suda Neto, Yuanzheng Paul Tan, Michele Grossi, Stefano Carrazza</div>
+        <div class="pub-journal">arXiv:2510.11773 (2024)</div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;"><a href="https://arxiv.org/abs/2510.11773" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-size: 0.95rem; font-weight: 600;"><i class="fas fa-file-alt"></i> arXiv</a></div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Qibocal: an open-source framework for calibration of self-hosted quantum devices</div>
+        <div class="pub-authors">Andrea Pasquale, Edoardo Pedicillo, Juan Cereijo, Sergi Ramos-Calderer, Alessandro Candido, Gabriele Palazzo, Rodolfo Carobene, Marco Gobbo, Stavros Efthymiou, Yuanzheng Paul Tan, Ingo Roth, Matteo Robbiati, Jadwiga Wilkens, Alvaro Orgaz-Fuertes, David Fuentes-Ruiz, Andrea Giachero, Frederico Brito, José Ignacio Latorre, Stefano Carrazza</div>
+        <div class="pub-journal">arXiv:2410.00101 (2024)</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Double-bracket quantum algorithms for high-fidelity ground state preparation</div>
+        <div class="pub-authors"><u>Matteo Robbiati</u>, Edoardo Pedicillo, Andrea Pasquale, Xiaoyue Li, Oriel Kiss, Andrew Wright, Renato M. S. Farias, Khanh Uyen Giang, Jeongrak Son, Johannes Knörzer, Siong Thye Goh, Jun Yong Khoo, Nelly H. Y. Ng, Zoë Holmes, Stefano Carrazza, Marek Gluza</div>
+        <div class="pub-journal">arXiv:2408.03987 (2024)</div>
+      </div>
+
+      <h4 class="mt-3 mb-3" style="color: var(--persian-blue); font-weight: 700;">Proceedings of Science</h4>
+
+      <div class="pub-item">
+        <div class="pub-title">Strategies for optimizing double-bracket quantum algorithms</div>
+        <div class="pub-authors">Li Xiaoyue, Matteo Robbiati, Andrea Pasquale, Edoardo Pedicillo, Andrew Wright, Stefano Carrazza, Marek Gluza</div>
+        <div class="pub-journal">arXiv:2408.07431 (2024)</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">Beyond full statevector simulation with Qibo</div>
+        <div class="pub-authors">Andrea Pasquale, Andrea Papaluca, Renato M. S. Farias, Matteo Robbiati, Edoardo Pedicillo, Stefano Carrazza</div>
+        <div class="pub-journal">arXiv:2408.00384 (2024)</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">An open-source framework for quantum hardware control</div>
+        <div class="pub-authors">Edoardo Pedicillo, Alessandro Candido, Stavros Efthymiou, Hayk Sargsyan, Yuanzheng Paul Tan, Juan Cereijo, Jun Yong Khoo, Andrea Pasquale, Matteo Robbiati, Stefano Carrazza</div>
+        <div class="pub-journal">arXiv:2407.21737 (2024)</div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-title">A quantum analytical Adam descent through parameter shift rule using Qibo</div>
+        <div class="pub-authors">Matteo Robbiati, Stavros Efthymiou, Andrea Pasquale, Stefano Carrazza</div>
+        <div class="pub-journal">41st International Conference on High Energy Physics (2023)</div>
+      </div>
+    </div>
+
+    <!-- Participation in Research Grants -->
+    <div class="cv-section">
+      <h2><i class="fas fa-award"></i> Research Grants</h2>
+      
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">WACQT Summer Internship</div>
+            <div class="cv-entry-subtitle">Wallenberg Centre for Quantum Technology, Chalmers University of Technology, Sweden</div>
+          </div>
+          <div class="cv-entry-date">Summer 2026</div>
+        </div>
+        <div class="cv-entry-description">Selected student for the WACQT summer internship program. <a href="https://www.chalmers.se/en/centres/wacqt/education/summer-internship/" target="_blank" style="color: var(--persian-blue); text-decoration: none; font-weight: 600;">Learn more</a></div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Automatic Monte Carlo on GPU</div>
+            <div class="cv-entry-subtitle">Linea 2A, University of Milan, Italy</div>
+          </div>
+          <div class="cv-entry-date">2021 - 2022</div>
+        </div>
+        <div class="cv-entry-description">Collaborator</div>
+      </div>
+    </div>
+
+    <!-- Contributions in Conferences -->
+    <div class="cv-section">
+      <div class="collapsible-header" onclick="toggleCollapsible('conferences')">
+        <h3><i class="fas fa-microphone"></i> Conference & Workshop Contributions</h3>
+        <span class="collapsible-toggle" id="conferences-toggle"><i class="fas fa-chevron-down"></i></span>
+      </div>
+      <div class="collapsible-content" id="conferences">
+      
+      <div class="cv-entry">
+        <div class="cv-entry-title">Double-bracket quantum algorithms for high-fidelity ground state preparation</div>
+        <div class="cv-entry-details">QT4HEP, CERN (2025)</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Quantum Machine Learning in High Energy Physics with Qibo</div>
+        <div class="cv-entry-details">PyHEP Workshop, Online (2024)</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Real-time error mitigation for variational optimization on quantum hardware</div>
+        <div class="cv-entry-details">ACAT 2024, Stony Brook University, New York (2024)</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Full-stack Quantum Machine Learning in High Energy Physics</div>
+        <div class="cv-entry-details">APS March Meeting 2024, Minneapolis (2024)</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Full-stack Quantum Machine Learning using Qibo</div>
+        <div class="cv-entry-details">Singapore Quantum Tech Meetup, Singapore (2024)</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Real-time error mitigation for variational optimization on quantum hardware</div>
+        <div class="cv-entry-details">QTML2023, CERN (2023)</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Determining probability density functions with adiabatic quantum computing</div>
+        <div class="cv-entry-details">QTML2023 & EQAI2023, CERN & Udine (2023)</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">qibo: a full-stack framework for simulation, control and calibration of self-hosted qubit devices</div>
+        <div class="cv-entry-details">INFN Workshop CSN4&5, Torino (2023)</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Full-stack Quantum Machine Learning for High Energy Physics</div>
+        <div class="cv-entry-details">Milan Christmas Meeting 2023, Milan (2023)</div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Attended Schools -->
+    <div class="cv-section">
+      <div class="collapsible-header" onclick="toggleCollapsible('schools')">
+        <h3><i class="fas fa-school"></i> Attended Schools & Workshops</h3>
+        <span class="collapsible-toggle" id="schools-toggle"><i class="fas fa-chevron-down"></i></span>
+      </div>
+      <div class="collapsible-content" id="schools">
+      
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">LMS Research School Quantum Machine Learning and Hamiltonian Simulation</div>
+          </div>
+          <div class="cv-entry-date">2025</div>
+        </div>
+        <div class="cv-entry-description">Skye, Scotland</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Spring School on Near-Term Quantum Computing</div>
+          </div>
+          <div class="cv-entry-date">2024</div>
+        </div>
+        <div class="cv-entry-description">Benasque, Spain</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">European Summer School on Quantum AI</div>
+          </div>
+          <div class="cv-entry-date">2023</div>
+        </div>
+        <div class="cv-entry-description">Udine, Italy</div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Teaching & Education -->
+    <div class="cv-section">
+      <div class="collapsible-header" onclick="toggleCollapsible('teaching')">
+        <h3><i class="fas fa-chalkboard-user"></i> Teaching & Educational Contributions</h3>
+        <span class="collapsible-toggle" id="teaching-toggle"><i class="fas fa-chevron-down"></i></span>
+      </div>
+      <div class="collapsible-content" id="teaching">
+      
+      <div class="cv-entry">
+        <div class="cv-entry-title">Online Course: Quantum Computing with Qibo</div>
+        <div class="cv-entry-details">Centre of Quantum Technologies, Singapore</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Minicourse on Quantum Computing</div>
+        <div class="cv-entry-details">ICTP, São Paulo, Brazil</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Ph.D. School Course: Quantum Machine Learning with Qibo</div>
+        <div class="cv-entry-details">Como, Italy</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Master Thesis Co-supervision</div>
+        <div class="cv-entry-details"><strong>Towards advanced data encoding techniques for quantum re-uploading models</strong> — Niccolò Laurora, University of Milan</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Bachelor Thesis Co-supervision</div>
+        <div class="cv-entry-details"><strong>Momentum-Based Real Time Quantum Error Mitigation in Variational Quantum Algorithms</strong> — Alessandra Esmeraldi, University of Milan Bicocca</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Master Thesis Co-supervision</div>
+        <div class="cv-entry-details"><strong>Tensor Network Born Machine</strong> — Mattia Robbiano, University of Turin</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title">Bachelor Thesis Co-supervision</div>
+        <div class="cv-entry-details"><strong>The role of non-linear encodings in quantum data reuploading</strong> — Laura Pedro-Botet Ezquerra, Universitat Politecnica de Catalunya</div>
+      </div>
+      </div>
+    </div>
+
+    <!-- Outreach & Volunteering -->
+    <div class="cv-section">
+      <h2><i class="fas fa-handshake"></i> Outreach & Volunteering</h2>
+      
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Scout Educator</div>
+            <div class="cv-entry-subtitle">AGESCI</div>
+          </div>
+          <div class="cv-entry-date">2016 - 2022</div>
+        </div>
+        <div class="cv-entry-description">Organized and managed educational activities and social impact initiatives in the community approximately twice a week, typically involving between 5 and 30 young people aged 13 to 17.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div>
+            <div class="cv-entry-title">Volunteer</div>
+            <div class="cv-entry-subtitle">APWOYO Onlus</div>
+          </div>
+          <div class="cv-entry-date">2019 - 2022</div>
+        </div>
+        <div class="cv-entry-description">Distributed food and clothes to the homeless in Milan two nights per month.</div>
+      </div>
+    </div>
+
+    <!-- References -->
+    <div class="cv-section">
+      <h2><i class="fas fa-users"></i> Reference Contacts</h2>
+      
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="mailto:stefano.carrazza@cern.ch" style="color: var(--persian-blue); text-decoration: none;">Stefano Carrazza</a></div>
+        <div class="cv-entry-description">Associate Professor at University of Milan</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="mailto:marekludwik.gluza@ntu.edu.sg" style="color: var(--persian-blue); text-decoration: none;">Marek Gluza</a></div>
+        <div class="cv-entry-description">Postdoctoral Researcher at NTU, Singapore</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="mailto:juan.manuel.cruz.martinez@cern.ch" style="color: var(--persian-blue); text-decoration: none;">Juan Manuel Cruz Martinez</a></div>
+        <div class="cv-entry-description">Senior Research Fellow at CERN</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-title"><a href="mailto:Yousef.husein@blykalla.com" style="color: var(--persian-blue); text-decoration: none;">Yousef Husein</a></div>
+        <div class="cv-entry-description">Senior Nuclear Engineer at Blykalla, Sweden</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="py-5 border-top bg-alternate mt-5">
+    <div class="container text-center text-muted">
+      <p class="mb-0 fs-5">&copy; Made with 🫶🏼 by Lorefais.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById('themeIcon');
+      if (html.getAttribute('data-bs-theme') === 'light') {
+        html.setAttribute('data-bs-theme', 'dark');
+        icon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        html.setAttribute('data-bs-theme', 'light');
+        icon.classList.replace('fa-sun', 'fa-moon');
+      }
+    }
+
+    function toggleCollapsible(sectionId) {
+      const content = document.getElementById(sectionId);
+      const toggle = document.getElementById(sectionId + '-toggle');
+      
+      content.classList.toggle('open');
+      toggle.classList.toggle('open');
+    }
+  </script>
+</body>
+
+</html>
