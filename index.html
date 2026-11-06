@@ -323,6 +323,9 @@
     .journey-num { position: absolute; top: -14px; left: 20px; width: 32px; height: 32px; border-radius: 50%; background: var(--persian-blue); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 3px solid var(--bs-body-bg); }
     [data-bs-theme="dark"] .journey-num { color: #10142a; }
 
+    .new-badge { position: absolute; top: 14px; right: 14px; z-index: 2; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--persian-blue); color: #fff; font-size: 0.68rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+    [data-bs-theme="dark"] .new-badge { color: #10142a; }
+
     .flex-column { flex-direction: column !important; }
 
     .theme-toggle { cursor: pointer; color: white; font-size: 1.2rem; }
@@ -687,16 +690,64 @@
 
       </div>
 
-      <div class="row g-4 justify-content-center">
-        <div class="col-md-4">
-
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <section id="publications" class="section-border-top">
+  <section id="recent" class="section-border-top">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-5">Recent Implementations</h2>
+        <p class="text-muted">Packages and tools I have been building lately</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 project-card text-center">
+            <span class="new-badge">New</span>
+            <div class="card-emoji">✍️</div>
+            <h4 class="fw-bold">Matexxe</h4>
+            <p class="text-muted mb-4">Your last co-author before ArXiv.</p>
+            <a href="https://github.com/MatteoRobbiati/matexxe" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 project-card text-center">
+            <span class="new-badge">New</span>
+            <div class="card-emoji">⏱️</div>
+            <h4 class="fw-bold">csbench</h4>
+            <p class="text-muted mb-4">Benchmarking classical quantum circuit simulators.</p>
+            <a href="https://github.com/MatteoRobbiati/csbench" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 project-card text-center">
+            <span class="new-badge">New</span>
+            <div class="card-emoji">🔀</div>
+            <h4 class="fw-bold">arxiv-crossover</h4>
+            <p class="text-muted mb-4">Scrape ArXiv and analyse the crossover between two research fields.</p>
+            <a href="https://github.com/MatteoRobbiati/arxiv-crossover" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 project-card text-center">
+            <div class="card-emoji">🏋️</div>
+            <h4 class="fw-bold">Traintracker</h4>
+            <p class="text-muted mb-4">Workout tracker with friends boost.</p>
+            <a href="https://github.com/MatteoRobbiati/traintracker" class="btn-custom btn-outline-persian w-100">
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" class="section-border-top bg-alternate">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="fw-bold display-5">Publications</h2>
@@ -870,7 +921,7 @@
     </div>
   </section>
 
-  <section id="videos" class="section-border-top bg-alternate">
+  <section id="videos" class="section-border-top">
     <div class="container text-center">
       <h2 class="fw-bold display-5 mb-5">Talks & Lectures</h2>
       <div class="row g-4 justify-content-center">
@@ -902,7 +953,7 @@
     </div>
   </section>
 
-<section id="contact" class="section-border-top">
+<section id="contact" class="section-border-top bg-alternate">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="fw-bold display-5">Contact</h2>
