@@ -307,24 +307,30 @@
     #journeyMap .pin { fill: var(--persian-blue); stroke: #fff; stroke-width: 3; transition: r 0.25s ease; }
     #journeyMap .pin-num { font: 800 15px Inter, system-ui, sans-serif; fill: #fff; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
     [data-bs-theme="dark"] #journeyMap .pin-num { fill: #10142a; }
-    #journeyMap .pin-label { font: 800 21px Inter, system-ui, sans-serif; fill: var(--text-main); paint-order: stroke; stroke: rgba(255,255,255,0.9); stroke-width: 5px; }
-    [data-bs-theme="dark"] #journeyMap .pin-label { fill: #e6ebff; stroke: rgba(21,27,50,0.9); }
-    #journeyMap .pin-year { font: 600 15px Inter, system-ui, sans-serif; fill: var(--text-muted); paint-order: stroke; stroke: rgba(255,255,255,0.9); stroke-width: 4px; }
-    [data-bs-theme="dark"] #journeyMap .pin-year { fill: #aab6e6; stroke: rgba(21,27,50,0.9); }
     #journeyMap g.place.active .pin { r: 20; }
-    .journey-card { position: relative; height: 100%; padding: 2rem 1.75rem 1.5rem; border-radius: 20px; border: 1.5px solid rgba(28,57,187,0.28); background: linear-gradient(160deg, #dbe3ff 0%, #c5d1fb 100%); box-shadow: 0 2px 4px rgba(20,30,80,0.08), 0 16px 36px -14px rgba(28,57,187,0.38); transition: transform 0.35s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.35s ease; }
-    .journey-card:hover { transform: translateY(-6px); box-shadow: 0 2px 4px rgba(20,30,80,0.08), 0 26px 50px -16px rgba(28,57,187,0.45); }
-    [data-bs-theme="dark"] .journey-card { background: linear-gradient(160deg, #2a3358 0%, #232b49 100%); border-color: rgba(124,148,255,0.4); }
-    .journey-card { text-align: center; padding: 1.8rem 1.5rem 1.4rem; }
-    .journey-card h5 { font-weight: 800; color: var(--persian-blue); margin-bottom: 0.15rem; font-size: 1.3rem; }
-    .journey-years { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.7rem; }
-    .journey-role { display: inline-block; padding: 0.3rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.65); font-weight: 700; font-size: 0.92rem; color: var(--text-main); }
-    [data-bs-theme="dark"] .journey-role { background: rgba(124,148,255,0.2); color: #e6ebff; }
-    .journey-num { position: absolute; top: -14px; left: 20px; width: 32px; height: 32px; border-radius: 50%; background: var(--persian-blue); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 3px solid var(--bs-body-bg); }
-    [data-bs-theme="dark"] .journey-num { color: #10142a; }
 
     .new-badge { position: absolute; top: 14px; right: 14px; z-index: 2; padding: 0.15rem 0.6rem; border-radius: 999px; background: var(--persian-blue); color: #fff; font-size: 0.68rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
     [data-bs-theme="dark"] .new-badge { color: #10142a; }
+
+    .journey-wrap .callout {
+      position: absolute; z-index: 2; box-sizing: border-box;
+      padding: 0.45rem 0.8rem; border-radius: 12px; max-width: 200px; line-height: 1.25;
+      border: 1.5px solid rgba(28,57,187,0.3);
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(4px);
+      box-shadow: 0 2px 4px rgba(20,30,80,0.08), 0 10px 24px -10px rgba(28,57,187,0.45);
+      transition: transform 0.25s ease;
+    }
+    [data-bs-theme="dark"] .journey-wrap .callout { background: rgba(21,27,50,0.92); border-color: rgba(124,148,255,0.45); }
+    .callout b { display: block; font-size: 0.95rem; color: var(--persian-blue); font-weight: 800; }
+    .callout span { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-main); }
+    .callout em { display: block; font-size: 0.72rem; font-style: normal; color: var(--text-muted); margin-top: 1px; }
+    .callout.left { transform: translate(-100%, -50%); }
+    .callout.right { transform: translate(0, -50%); }
+    .callout:hover { box-shadow: 0 2px 4px rgba(20,30,80,0.1), 0 14px 30px -10px rgba(28,57,187,0.6); }
+    @media (max-width: 767.98px) {
+      .journey-wrap .callout { padding: 0.3rem 0.5rem; max-width: 118px; border-radius: 9px; }
+      .callout b { font-size: 0.72rem; } .callout span { font-size: 0.62rem; } .callout em { font-size: 0.56rem; }
+    }
 
     .flex-column { flex-direction: column !important; }
 
@@ -530,32 +536,6 @@
       </div>
       <div class="journey-wrap">
         <svg id="journeyMap" viewBox="0 0 960 600" role="img" aria-label="Map showing the journey Milan, CERN, Göteborg"></svg>
-      </div>
-      <div class="row g-4 mt-2">
-        <div class="col-lg-4">
-          <div class="journey-card" data-i="0">
-            <div class="journey-num">1</div>
-            <h5>🇮🇹 Milan</h5>
-            <div class="journey-years">2015 – 2022</div>
-            <div class="journey-role">Bachelor and Master in Physics</div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="journey-card" data-i="1">
-            <div class="journey-num">2</div>
-            <h5>⚛️ CERN, Geneva</h5>
-            <div class="journey-years">2022 – 2025</div>
-            <div class="journey-role">PhD in Physics</div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="journey-card" data-i="2">
-            <div class="journey-num">3</div>
-            <h5>🇸🇪 Göteborg</h5>
-            <div class="journey-years">2025 – today</div>
-            <div class="journey-role">Postdoctoral Researcher</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1043,9 +1023,9 @@
       const NS = 'http://www.w3.org/2000/svg';
       // [lon, lat]; label side: 1 = right, -1 = left
       const places = [
-        { name: 'Milan',    year: '2015–2022',  c: [9.19, 45.46],  side: 1,  dy: 40 },
-        { name: 'CERN',     year: '2022–2025',  c: [6.05, 46.23],  side: -1, dy: -24 },
-        { name: 'Göteborg', year: '2025–today', c: [11.97, 57.71], side: 1,  dy: -28 }
+        { name: 'Milan',    flag: '🇮🇹', role: 'Bachelor and Master in Physics', year: '2015 – 2022', c: [9.19, 45.46],  side: 1,  dy: 14 },
+        { name: 'CERN, Geneva', flag: '⚛️', role: 'PhD in Physics', year: '2022 – 2025', c: [6.05, 46.23],  side: -1, dy: -14 },
+        { name: 'Göteborg', flag: '🇸🇪', role: 'Postdoctoral Researcher', year: '2025 – today', c: [11.97, 57.71], side: 1,  dy: 0 }
       ];
       function el(tag, attrs, parent) {
         const e = document.createElementNS(NS, tag);
@@ -1109,22 +1089,24 @@
             d: `M${tipX},${tipY} L${bx + px * Wd},${by + py * Wd} L${bx - px * Wd},${by - py * Wd} Z` });
         }
 
+        const wrap = svg.parentElement;
+        wrap.querySelectorAll('.callout').forEach(n => n.remove());
         places.forEach((p, i) => {
           const [x, y] = pts[i];
           const g = el('g', { class: 'place', 'data-i': i });
           if (i === places.length - 1) el('circle', { class: 'pin-pulse', cx: x, cy: y, r: 16 }, g);
           el('circle', { class: 'pin', cx: x, cy: y, r: 16 }, g);
           const n = el('text', { class: 'pin-num', x: x, y: y }, g); n.textContent = i + 1;
-          const lx = x + p.side * 28, anchor = p.side === 1 ? 'start' : 'end';
-          const t = el('text', { class: 'pin-label', x: lx, y: y + p.dy, 'text-anchor': anchor }, g); t.textContent = p.name;
-          const t2 = el('text', { class: 'pin-year', x: lx, y: y + p.dy + 20, 'text-anchor': anchor }, g); t2.textContent = p.year;
-        });
-
-        // hover a card -> highlight the matching pin
-        document.querySelectorAll('.journey-card').forEach(card => {
-          const g = svg.querySelector(`g.place[data-i="${card.dataset.i}"]`);
-          card.addEventListener('mouseenter', () => g.classList.add('active'));
-          card.addEventListener('mouseleave', () => g.classList.remove('active'));
+          // info callout placed directly on the map, next to the pin
+          const c = document.createElement('div');
+          c.className = 'callout ' + (p.side === 1 ? 'right' : 'left');
+          c.innerHTML = `<b>${p.flag} ${p.name}</b><span>${p.role}</span><em>${p.year}</em>`;
+          const gap = (p.side === 1 ? 1 : -1) * 3.2;   // % of map width, clear of the pin
+          c.style.left = (x / W * 100 + gap) + '%';
+          c.style.top = ((y + p.dy) / H * 100) + '%';
+          c.addEventListener('mouseenter', () => g.classList.add('active'));
+          c.addEventListener('mouseleave', () => g.classList.remove('active'));
+          wrap.appendChild(c);
         });
       }
       fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json')
