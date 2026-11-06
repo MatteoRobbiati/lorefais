@@ -324,11 +324,9 @@
     .callout b { display: block; font-size: 0.95rem; color: var(--persian-blue); font-weight: 800; }
     .callout span { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-main); }
     .callout em { display: block; font-size: 0.72rem; font-style: normal; color: var(--text-muted); margin-top: 1px; }
-    .callout.left { transform: translate(-100%, -50%); }
-    .callout.right { transform: translate(0, -50%); }
     .callout:hover { box-shadow: 0 2px 4px rgba(20,30,80,0.1), 0 14px 30px -10px rgba(28,57,187,0.6); }
     @media (max-width: 767.98px) {
-      .journey-wrap .callout { padding: 0.3rem 0.5rem; max-width: 118px; border-radius: 9px; }
+      .journey-wrap .callout { padding: 0.3rem 0.5rem; max-width: 112px; border-radius: 9px; }
       .callout b { font-size: 0.72rem; } .callout span { font-size: 0.62rem; } .callout em { font-size: 0.56rem; }
     }
 
@@ -1101,14 +1099,28 @@
           const c = document.createElement('div');
           c.className = 'callout ' + (p.side === 1 ? 'right' : 'left');
           c.innerHTML = `<b>${p.flag} ${p.name}</b><span>${p.role}</span><em>${p.year}</em>`;
-          const gap = (p.side === 1 ? 1 : -1) * 3.2;   // % of map width, clear of the pin
-          c.style.left = (x / W * 100 + gap) + '%';
-          c.style.top = ((y + p.dy) / H * 100) + '%';
+          c._p = { x: x / W, y: (y + p.dy) / H, side: p.side };
           c.addEventListener('mouseenter', () => g.classList.add('active'));
           c.addEventListener('mouseleave', () => g.classList.remove('active'));
           wrap.appendChild(c);
         });
+        layoutCallouts();
       }
+      // place callouts next to their pin, clamped inside the map with a safe margin
+      function layoutCallouts() {
+        const wrap = svg.parentElement, ww = wrap.clientWidth, wh = wrap.clientHeight;
+        const m = ww < 600 ? 14 : 12;               // side margin (px)
+        const gap = ww < 600 ? 14 : 22;             // distance from the pin (px)
+        wrap.querySelectorAll('.callout').forEach(c => {
+          c.style.transform = 'translateY(-50%)';
+          const w = c.offsetWidth, ax = c._p.x * ww;
+          let left = c._p.side === 1 ? ax + gap : ax - gap - w;
+          left = Math.max(m, Math.min(left, ww - m - w));
+          const top = Math.max(c.offsetHeight / 2 + m, Math.min(c._p.y * wh, wh - c.offsetHeight / 2 - m));
+          c.style.left = left + 'px'; c.style.top = top + 'px';
+        });
+      }
+      window.addEventListener('resize', layoutCallouts);
       fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json')
         .then(r => r.json())
         .then(topo => draw(topo))
