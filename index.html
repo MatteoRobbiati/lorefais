@@ -276,6 +276,53 @@
     .card-emoji { background: rgba(255,255,255,0.65); }
     [data-bs-theme="dark"] .card-emoji { background: rgba(124,148,255,0.22); }
 
+    /* Journey map */
+    :root { --ocean1: #dbe7ff; --ocean2: #f1f6ff; --country-hi: #1C39BB; }
+    [data-bs-theme="dark"] { --ocean1: #0e1530; --ocean2: #172044; --country-hi: #7c94ff; }
+    .journey-wrap {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1.5px solid rgba(28,57,187,0.25);
+      box-shadow: 0 2px 4px rgba(20,30,80,0.08), 0 20px 50px -20px rgba(28,57,187,0.4);
+    }
+    [data-bs-theme="dark"] .journey-wrap { border-color: rgba(124,148,255,0.4); }
+    #journeyMap { width: 100%; height: auto; display: block; }
+    #journeyMap .land { fill: #ffffff; stroke: rgba(28,57,187,0.28); stroke-width: 0.6; stroke-linejoin: round; }
+    #journeyMap .land.hi { fill: rgba(28,57,187,0.22); stroke: rgba(28,57,187,0.55); stroke-width: 1; }
+    [data-bs-theme="dark"] #journeyMap .land { fill: #232c52; stroke: rgba(124,148,255,0.3); }
+    [data-bs-theme="dark"] #journeyMap .land.hi { fill: rgba(124,148,255,0.35); stroke: rgba(160,180,255,0.7); }
+    #journeyMap .grat { fill: none; stroke: rgba(28,57,187,0.12); stroke-width: 0.6; stroke-dasharray: 2 5; }
+    [data-bs-theme="dark"] #journeyMap .grat { stroke: rgba(124,148,255,0.15); }
+    #journeyMap .route-casing { fill: none; stroke: #fff; stroke-width: 5.5; stroke-linecap: round; opacity: 0.85; }
+    [data-bs-theme="dark"] #journeyMap .route-casing { stroke: #0e1530; }
+    #journeyMap .route-main { fill: none; stroke: var(--persian-blue); stroke-width: 2.4; stroke-linecap: round; }
+    #journeyMap .route-flow { fill: none; stroke: #fff; stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 0.5 14; animation: flow 1.4s linear infinite; }
+    [data-bs-theme="dark"] #journeyMap .route-flow { stroke: #10142a; }
+    @keyframes flow { to { stroke-dashoffset: -34; } }
+    #journeyMap .arrowhead { fill: var(--persian-blue); stroke: none; }
+    [data-bs-theme="dark"] #journeyMap .arrowhead { stroke: #0e1530; }
+    #journeyMap .pin-pulse { fill: var(--persian-blue); opacity: 0.25; transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
+    @keyframes pulse { 0% { transform: scale(0.8); opacity: 0.5; } 100% { transform: scale(2.2); opacity: 0; } }
+    #journeyMap .pin { fill: var(--persian-blue); stroke: #fff; stroke-width: 3; transition: r 0.25s ease; }
+    #journeyMap .pin-num { font: 800 15px Inter, system-ui, sans-serif; fill: #fff; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+    [data-bs-theme="dark"] #journeyMap .pin-num { fill: #10142a; }
+    #journeyMap .pin-label { font: 800 21px Inter, system-ui, sans-serif; fill: var(--text-main); paint-order: stroke; stroke: rgba(255,255,255,0.9); stroke-width: 5px; }
+    [data-bs-theme="dark"] #journeyMap .pin-label { fill: #e6ebff; stroke: rgba(21,27,50,0.9); }
+    #journeyMap .pin-year { font: 600 15px Inter, system-ui, sans-serif; fill: var(--text-muted); paint-order: stroke; stroke: rgba(255,255,255,0.9); stroke-width: 4px; }
+    [data-bs-theme="dark"] #journeyMap .pin-year { fill: #aab6e6; stroke: rgba(21,27,50,0.9); }
+    #journeyMap g.place.active .pin { r: 20; }
+    .journey-card { position: relative; height: 100%; padding: 2rem 1.75rem 1.5rem; border-radius: 20px; border: 1.5px solid rgba(28,57,187,0.28); background: linear-gradient(160deg, #dbe3ff 0%, #c5d1fb 100%); box-shadow: 0 2px 4px rgba(20,30,80,0.08), 0 16px 36px -14px rgba(28,57,187,0.38); transition: transform 0.35s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.35s ease; }
+    .journey-card:hover { transform: translateY(-6px); box-shadow: 0 2px 4px rgba(20,30,80,0.08), 0 26px 50px -16px rgba(28,57,187,0.45); }
+    [data-bs-theme="dark"] .journey-card { background: linear-gradient(160deg, #2a3358 0%, #232b49 100%); border-color: rgba(124,148,255,0.4); }
+    .journey-card { text-align: center; padding: 1.8rem 1.5rem 1.4rem; }
+    .journey-card h5 { font-weight: 800; color: var(--persian-blue); margin-bottom: 0.15rem; font-size: 1.3rem; }
+    .journey-years { font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.7rem; }
+    .journey-role { display: inline-block; padding: 0.3rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.65); font-weight: 700; font-size: 0.92rem; color: var(--text-main); }
+    [data-bs-theme="dark"] .journey-role { background: rgba(124,148,255,0.2); color: #e6ebff; }
+    .journey-num { position: absolute; top: -14px; left: 20px; width: 32px; height: 32px; border-radius: 50%; background: var(--persian-blue); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 3px solid var(--bs-body-bg); }
+    [data-bs-theme="dark"] .journey-num { color: #10142a; }
+
     .flex-column { flex-direction: column !important; }
 
     .theme-toggle { cursor: pointer; color: white; font-size: 1.2rem; }
@@ -404,6 +451,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#journey">Journey</a></li>
           <li class="nav-item"><a class="nav-link" href="#software">Software</a></li>
           <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
           <li class="nav-item"><a class="nav-link" href="#videos">Talks</a></li>
@@ -455,6 +503,44 @@
     </div>
   </div>
 </header>
+
+  <section id="journey" class="section-border-top bg-alternate">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-5">My Journey</h2>
+        <p class="text-muted">From Milan to CERN, and now to Göteborg</p>
+      </div>
+      <div class="journey-wrap">
+        <svg id="journeyMap" viewBox="0 0 960 600" role="img" aria-label="Map showing the journey Milan, CERN, Göteborg"></svg>
+      </div>
+      <div class="row g-4 mt-2">
+        <div class="col-lg-4">
+          <div class="journey-card" data-i="0">
+            <div class="journey-num">1</div>
+            <h5>🇮🇹 Milan</h5>
+            <div class="journey-years">2015 – 2022</div>
+            <div class="journey-role">Bachelor and Master in Physics</div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="journey-card" data-i="1">
+            <div class="journey-num">2</div>
+            <h5>⚛️ CERN, Geneva</h5>
+            <div class="journey-years">2022 – 2025</div>
+            <div class="journey-role">PhD in Physics</div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="journey-card" data-i="2">
+            <div class="journey-num">3</div>
+            <h5>🇸🇪 Göteborg</h5>
+            <div class="journey-years">2025 – today</div>
+            <div class="journey-role">Postdoctoral Researcher</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="software" class="section-border-top">
     <div class="container">
@@ -879,6 +965,107 @@
         btn.innerHTML = "hide " + label;
       }
     }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3-array@3.2.4/dist/d3-array.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-geo@3.1.1/dist/d3-geo.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js" defer></script>
+  <script defer>
+    window.addEventListener('DOMContentLoaded', function () {
+      const W = 960, H = 600;
+      const svg = document.getElementById('journeyMap');
+      const NS = 'http://www.w3.org/2000/svg';
+      // [lon, lat]; label side: 1 = right, -1 = left
+      const places = [
+        { name: 'Milan',    year: '2015–2022',  c: [9.19, 45.46],  side: 1,  dy: 40 },
+        { name: 'CERN',     year: '2022–2025',  c: [6.05, 46.23],  side: -1, dy: -24 },
+        { name: 'Göteborg', year: '2025–today', c: [11.97, 57.71], side: 1,  dy: -28 }
+      ];
+      function el(tag, attrs, parent) {
+        const e = document.createElementNS(NS, tag);
+        for (const k in attrs) e.setAttribute(k, attrs[k]);
+        (parent || svg).appendChild(e);
+        return e;
+      }
+      function draw(topo) {
+        const countries = topojson.feature(topo, topo.objects.countries).features;
+        const proj = d3.geoMercator().center([9.5, 51.6]).scale(1250).translate([W / 2, H / 2])
+          .clipExtent([[0, 0], [W, H]]);
+        const path = d3.geoPath(proj);
+
+        // ocean gradient
+        const defs = el('defs', {});
+        const lg = el('linearGradient', { id: 'ocean', x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+        el('stop', { offset: '0%', style: 'stop-color:var(--ocean1)' }, lg);
+        el('stop', { offset: '100%', style: 'stop-color:var(--ocean2)' }, lg);
+        el('rect', { width: W, height: H, fill: 'url(#ocean)' });
+        el('path', { class: 'grat', d: path(d3.geoGraticule().step([5, 5])()) });
+
+        const visited = ['Italy', 'Switzerland', 'Sweden'];
+        countries.forEach(f => {
+          el('path', { class: 'land' + (visited.includes(f.properties.name) ? ' hi' : ''), d: path(f) });
+        });
+
+        const pts = places.map(p => proj(p.c));
+        for (let i = 0; i < pts.length - 1; i++) {
+          const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+          const dist = Math.hypot(x2 - x1, y2 - y1);
+          const nx = -(y2 - y1) / dist, ny = (x2 - x1) / dist;
+          const bend = dist * 0.2 * (i === 0 ? 1 : -1);
+          const cx = (x1 + x2) / 2 + nx * bend, cy = (y1 + y2) / 2 + ny * bend;
+          const bez = t => [(1 - t) * (1 - t) * x1 + 2 * (1 - t) * t * cx + t * t * x2,
+                            (1 - t) * (1 - t) * y1 + 2 * (1 - t) * t * cy + t * t * y2];
+          // find the curve point at distance 22px from the destination pin center (just outside the pin)
+          let lo = 0, hi = 1;
+          for (let k = 0; k < 40; k++) {
+            const m = (lo + hi) / 2, [px_, py_] = bez(m);
+            if (Math.hypot(x2 - px_, y2 - py_) > 21) lo = m; else hi = m;
+          }
+          const tt = hi, [tipX, tipY] = bez(tt);
+          // tangent of the curve at the tip
+          const dx = 2 * (1 - tt) * (cx - x1) + 2 * tt * (x2 - cx);
+          const dy = 2 * (1 - tt) * (cy - y1) + 2 * tt * (y2 - cy);
+          const ang = Math.atan2(dy, dx);
+          const L = 13, Wd = 6;
+          const bx = tipX - L * Math.cos(ang), by = tipY - L * Math.sin(ang);   // base center of the head
+          // line stops at the base of the head (slightly inside it so there is no gap)
+          const ux = bx + 4 * Math.cos(ang), uy = by + 4 * Math.sin(ang);
+          // re-fit the quadratic so that it ends at (ux,uy) with the same tangent: use sub-curve [0,t*]
+          const tS = tt - 0.035;
+          const [sx, sy] = bez(tS);
+          const qx = x1 + (cx - x1) * tS, qy = y1 + (cy - y1) * tS;   // control point of sub-curve [0,tS]
+          const d0 = `M${x1},${y1} Q${qx},${qy} ${sx},${sy}`;
+          el('path', { class: 'route-casing', d: d0 });
+          el('path', { class: 'route-main', d: d0 });
+          el('path', { class: 'route-flow', d: d0 });
+          const px = -Math.sin(ang), py = Math.cos(ang);
+          el('path', { class: 'arrowhead',
+            d: `M${tipX},${tipY} L${bx + px * Wd},${by + py * Wd} L${bx - px * Wd},${by - py * Wd} Z` });
+        }
+
+        places.forEach((p, i) => {
+          const [x, y] = pts[i];
+          const g = el('g', { class: 'place', 'data-i': i });
+          if (i === places.length - 1) el('circle', { class: 'pin-pulse', cx: x, cy: y, r: 16 }, g);
+          el('circle', { class: 'pin', cx: x, cy: y, r: 16 }, g);
+          const n = el('text', { class: 'pin-num', x: x, y: y }, g); n.textContent = i + 1;
+          const lx = x + p.side * 28, anchor = p.side === 1 ? 'start' : 'end';
+          const t = el('text', { class: 'pin-label', x: lx, y: y + p.dy, 'text-anchor': anchor }, g); t.textContent = p.name;
+          const t2 = el('text', { class: 'pin-year', x: lx, y: y + p.dy + 20, 'text-anchor': anchor }, g); t2.textContent = p.year;
+        });
+
+        // hover a card -> highlight the matching pin
+        document.querySelectorAll('.journey-card').forEach(card => {
+          const g = svg.querySelector(`g.place[data-i="${card.dataset.i}"]`);
+          card.addEventListener('mouseenter', () => g.classList.add('active'));
+          card.addEventListener('mouseleave', () => g.classList.remove('active'));
+        });
+      }
+      fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json')
+        .then(r => r.json())
+        .then(topo => draw(topo))
+        .catch(() => { svg.outerHTML = '<p class="text-center text-muted p-5">Map could not be loaded.</p>'; });
+    });
   </script>
 </body>
 </html>
