@@ -438,18 +438,27 @@
     }
 }                             
 
-    /* Phones: project cards as a compact 2-column grid */
+    .tagline { display: none; }
+
+    /* Phones: project cards become a swipeable feed (horizontal scroll-snap) */
     @media (max-width: 767.98px) {
-      .row:has(> div > .project-card) { --bs-gutter-x: 0.75rem; --bs-gutter-y: 0.75rem; }
-      .row:has(> div > .project-card) > div { flex: 0 0 auto; width: 50%; }
-      .project-card { padding: 1.25rem 0.75rem 1rem; border-radius: 16px; }
-      .project-card h4 { font-size: 1.05rem; margin-bottom: 0.4rem; word-break: break-word; }
-      .project-card p { display: none; }   /* concise cards on phones: title + link only */
-      .project-card h4 { margin-bottom: 0.7rem; }
-      .project-card .card-emoji { width: 38px; height: 38px; font-size: 1.15rem; border-radius: 12px; margin-bottom: 0.6rem; }
-      .project-card .btn-custom { padding: 0.4rem 0.5rem; font-size: 0.78rem; gap: 6px; }
+      .row:has(> div > .project-card) {
+        --bs-gutter-x: 0; --bs-gutter-y: 0;
+        flex-wrap: nowrap; justify-content: flex-start !important;
+        overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        gap: 0.85rem; margin: 0 -1rem; padding: 0.5rem 1rem 1.25rem;
+        scroll-padding: 0 1rem; scrollbar-width: none;
+      }
+      .row:has(> div > .project-card)::-webkit-scrollbar { display: none; }
+      .row:has(> div > .project-card) > div { flex: 0 0 66%; max-width: 66%; padding: 0; scroll-snap-align: start; }
+      .project-card { padding: 1.4rem 1rem 1.1rem; border-radius: 18px; }
+      .project-card h4 { font-size: 1.2rem; margin-bottom: 0.25rem; word-break: break-word; }
+      .project-card p { display: none; }
+      .tagline { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.9rem; }
+      .project-card .card-emoji { width: 44px; height: 44px; font-size: 1.3rem; border-radius: 14px; margin-bottom: 0.7rem; }
+      .project-card .btn-custom { padding: 0.45rem 0.6rem; font-size: 0.82rem; gap: 6px; }
       .project-card:hover { transform: none; }
-      .new-badge { top: 8px; right: 8px; font-size: 0.55rem; padding: 0.1rem 0.45rem; }
+      .new-badge { top: 10px; right: 10px; font-size: 0.55rem; padding: 0.1rem 0.45rem; }
       .pub-card { padding: 1.1rem 1.1rem; }
     }
   </style>
@@ -549,6 +558,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">⚛️</div>
             <h4 class="fw-bold">Qibo</h4>
+            <div class="tagline">Quantum simulation</div>
             <p class="text-muted mb-4">Classical simulation of quantum computing with hardware acceleration.</p>
             <a href="https://github.com/qiboteam/qibo" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -560,6 +570,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">🎛️</div>
             <h4 class="fw-bold">Qibolab</h4>
+            <div class="tagline">Hardware control</div>
             <p class="text-muted mb-4">Control module for quantum hardware, bridging algorithms to pulses.</p>
             <a href="https://github.com/qiboteam/qibolab" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -571,6 +582,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">📐</div>
             <h4 class="fw-bold">Qibocal</h4>
+            <div class="tagline">Calibration tools</div>
             <p class="text-muted mb-4">Automated tools for calibration and characterization of quantum processors.</p>
             <a href="https://github.com/qiboteam/qibocal" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -582,6 +594,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">🧠</div>
             <h4 class="fw-bold">Qiboml</h4>
+            <div class="tagline">Quantum ML</div>
             <p class="text-muted mb-4">Quantum-classical machine learning integration library.</p>
             <a href="https://github.com/qiboteam/qiboml" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -593,6 +606,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">🎓</div>
             <h4 class="fw-bold">Qiboedu</h4>
+            <div class="tagline">Learning material</div>
             <p class="text-muted mb-4">Quantum computing educational material: an hands-on introductory course.</p>
             <a href="https://github.com/qiboteam/qiboedu" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -604,6 +618,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">🧩</div>
             <h4 class="fw-bold">Mpstab</h4>
+            <div class="tagline">Hybrid simulator</div>
             <p class="text-muted mb-4">Hybrid Stabilizers-MPO quantum circuit simulator.</p>
             <a href="https://github.com/MatteoRobbiati/mpstab" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -630,6 +645,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">🔬</div>
             <h4 class="fw-bold">Kifit</h4>
+            <div class="tagline">King plots</div>
             <p class="text-muted mb-4">Searching for New Physics with (Non-)Linear King Plots.</p>
             <a href="https://github.com/QTI-TH/kifit" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -641,6 +657,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">🛡️</div>
             <h4 class="fw-bold">RTQEM</h4>
+            <div class="tagline">Error mitigation</div>
             <p class="text-muted mb-4">Real-time quantum error mitigation for variational optimization on quantum hardware.</p>
             <a href="https://github.com/qiboteam/rtqem" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -652,6 +669,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">∫</div>
             <h4 class="fw-bold">QiNNtegrate</h4>
+            <div class="tagline">Quantum integration</div>
             <p class="text-muted mb-4">Multi-dimensional integration with variational quantum circuits.</p>
             <a href="https://github.com/qiboteam/rtqem" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -663,6 +681,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">👻</div>
             <h4 class="fw-bold">PyEXORCISM</h4>
+            <div class="tagline">Boolean synthesis</div>
             <p class="text-muted mb-4">A Python implementation of a (dummy) EXORCISM algorithm for boolean functions synthesis.</p>
             <a href="https://github.com/MatteoRobbiati/pyexorcism" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -674,6 +693,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">🗄️</div>
             <h4 class="fw-bold">VQExDBQA</h4>
+            <div class="tagline">Ground states</div>
             <p class="text-muted mb-4">Interfacing VQEs with double-bracket quantum algorithms for high-fidelity ground state preparation.</p>
             <a href="https://github.com/qiboteam/boostvqe" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -698,6 +718,7 @@
             <span class="new-badge">New</span>
             <div class="card-emoji">✍️</div>
             <h4 class="fw-bold">Matexxe</h4>
+            <div class="tagline">Paper co-author</div>
             <p class="text-muted mb-4">Your last co-author before ArXiv.</p>
             <a href="https://github.com/MatteoRobbiati/matexxe" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -709,6 +730,7 @@
             <span class="new-badge">New</span>
             <div class="card-emoji">⏱️</div>
             <h4 class="fw-bold">csbench</h4>
+            <div class="tagline">Simulator benchmarks</div>
             <p class="text-muted mb-4">Benchmarking classical quantum circuit simulators.</p>
             <a href="https://github.com/MatteoRobbiati/csbench" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -720,6 +742,7 @@
             <span class="new-badge">New</span>
             <div class="card-emoji">🔀</div>
             <h4 class="fw-bold">arxiv-crossover</h4>
+            <div class="tagline">ArXiv analytics</div>
             <p class="text-muted mb-4">Scrape ArXiv and analyse the crossover between two research fields.</p>
             <a href="https://github.com/MatteoRobbiati/arxiv-crossover" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
@@ -730,6 +753,7 @@
           <div class="card h-100 project-card text-center">
             <div class="card-emoji">🏋️</div>
             <h4 class="fw-bold">Traintracker</h4>
+            <div class="tagline">Workout tracker</div>
             <p class="text-muted mb-4">Workout tracker with friends boost.</p>
             <a href="https://github.com/MatteoRobbiati/traintracker" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
