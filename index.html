@@ -112,37 +112,169 @@
     .hero-sub { color: var(--persian-blue); font-size: 1.5rem; font-weight: 400; }
     .hero-desc { font-size: 1.3rem; color: var(--text-muted); }
 
-    .project-card { 
-      border: 1px solid var(--pastel-blue-accent);
-      border-radius: 24px; 
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
-      background: var(--card-bg); /* Darker card background */
-      padding: 3rem 2rem;
+    .project-card {
+      --accent-grad: linear-gradient(90deg, #1C39BB, #6f8bff 60%, #a5b8ff);
+      border: 1px solid rgba(28, 57, 187, 0.12);
+      border-radius: 22px;
+      background:
+        radial-gradient(120% 80% at 0% 0%, rgba(111, 139, 255, 0.16), transparent 60%),
+        var(--bs-body-bg);
+      padding: 2.5rem 1.75rem 2rem;
       position: relative;
       overflow: hidden;
-    }
-    
-    .project-card:hover { 
-      transform: translateY(-12px); 
-      box-shadow: 0 30px 60px rgba(28, 57, 187, 0.12);
-      border-color: var(--persian-blue);
-    }
-    
-    .project-card h4 { 
-      color: var(--persian-blue) !important; 
-      margin-bottom: 1.5rem; 
-      font-weight: 700;
-      font-size: 1.6rem;
+      box-shadow: 0 1px 2px rgba(20, 30, 80, 0.05), 0 10px 30px -12px rgba(28, 57, 187, 0.18);
+      transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-color 0.3s ease;
     }
 
-    .pub-card { 
-      padding: 1rem; 
-      border-left: 6px solid var(--persian-blue); 
-      background: var(--bs-body-bg);
-      margin-bottom: 1.5rem;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-      border-radius: 0 16px 16px 0;
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: var(--accent-grad);
+      transform: scaleX(0.25);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(28, 57, 187, 0.35);
+      box-shadow: 0 2px 4px rgba(20, 30, 80, 0.06), 0 30px 60px -18px rgba(28, 57, 187, 0.35);
+    }
+
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-card h4 {
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent !important;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+    }
+
+    .project-card p { font-size: 0.95rem; line-height: 1.6; }
+
+    .project-card .btn-custom {
+      border-radius: 999px;
+      border-width: 1.5px;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .pub-card {
+      padding: 1.5rem 1.75rem;
+      background: var(--bs-body-bg);
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(28, 57, 187, 0.1);
+      border-radius: 18px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(20, 30, 80, 0.04), 0 8px 24px -14px rgba(28, 57, 187, 0.2);
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                  border-color 0.3s ease;
+    }
+
+    .pub-card::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 14%; bottom: 14%;
+      width: 4px;
+      border-radius: 0 4px 4px 0;
+      background: linear-gradient(180deg, #1C39BB, #6f8bff);
+      transition: top 0.35s ease, bottom 0.35s ease;
+    }
+
+    .pub-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(28, 57, 187, 0.3);
+      box-shadow: 0 2px 4px rgba(20, 30, 80, 0.06), 0 18px 40px -16px rgba(28, 57, 187, 0.35);
+    }
+
+    .pub-card:hover::before { top: 0; bottom: 0; }
+
+    .pub-card h5 { font-size: 1.1rem; line-height: 1.4; letter-spacing: -0.2px; }
+    .pub-card p { font-size: 0.9rem; }
+
+    .pub-card .btn-custom {
+      border-radius: 999px;
+      padding: 0.35rem 1.1rem !important;
+      font-size: 0.82rem;
+      border-width: 1.5px;
+    }
+
+    [data-bs-theme="dark"] .project-card,
+    [data-bs-theme="dark"] .pub-card {
+      border-color: rgba(124, 148, 255, 0.18);
+      box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
+    }
+    [data-bs-theme="dark"] .project-card {
+      background:
+        radial-gradient(120% 80% at 0% 0%, rgba(124, 148, 255, 0.14), transparent 60%),
+        var(--card-bg);
+      --accent-grad: linear-gradient(90deg, #7c94ff, #b3c0ff);
+    }
+    [data-bs-theme="dark"] .pub-card { background: var(--card-bg); }
+
+
+    .card-emoji {
+      width: 52px; height: 52px;
+      margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(28,57,187,0.14), rgba(111,139,255,0.28));
+      box-shadow: inset 0 0 0 1px rgba(28,57,187,0.15);
+      transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1);
+    }
+    .project-card:hover .card-emoji { transform: scale(1.1) rotate(-6deg); }
+
+    /* stronger visibility overrides */
+    .project-card {
+      border: 1.5px solid rgba(28, 57, 187, 0.28);
+      background:
+        radial-gradient(120% 80% at 0% 0%, rgba(111, 139, 255, 0.3), transparent 65%),
+        linear-gradient(180deg, rgba(28,57,187,0.05), rgba(28,57,187,0.10)),
+        var(--bs-body-bg);
+      box-shadow: 0 2px 4px rgba(20,30,80,0.08), 0 16px 36px -14px rgba(28,57,187,0.38);
+    }
+    .project-card::before { height: 5px; transform: scaleX(0.4); }
+    .pub-card {
+      border: 1.5px solid rgba(28, 57, 187, 0.22);
+      background: linear-gradient(180deg, rgba(28,57,187,0.04), rgba(28,57,187,0.08)), var(--bs-body-bg);
+      box-shadow: 0 2px 4px rgba(20,30,80,0.07), 0 12px 28px -12px rgba(28,57,187,0.35);
+    }
+    .pub-card::before { width: 5px; }
+    [data-bs-theme="dark"] .project-card,
+    [data-bs-theme="dark"] .pub-card { border-color: rgba(124,148,255,0.4); }
+    [data-bs-theme="dark"] .card-emoji { background: rgba(124,148,255,0.18); }
+
+    /* card background: more distinct from the page */
+    .project-card {
+      background:
+        radial-gradient(110% 90% at 0% 0%, rgba(255,255,255,0.55), transparent 60%),
+        linear-gradient(160deg, #dbe3ff 0%, #c5d1fb 100%);
+    }
+    .pub-card {
+      background: linear-gradient(160deg, #e6ecff 0%, #d5def9 100%);
+    }
+    [data-bs-theme="dark"] .project-card {
+      background:
+        radial-gradient(110% 90% at 0% 0%, rgba(124,148,255,0.22), transparent 60%),
+        linear-gradient(160deg, #2a3358 0%, #232b49 100%);
+    }
+    [data-bs-theme="dark"] .pub-card {
+      background: linear-gradient(160deg, #272f52 0%, #212947 100%);
+    }
+    .card-emoji { background: rgba(255,255,255,0.65); }
+    [data-bs-theme="dark"] .card-emoji { background: rgba(124,148,255,0.22); }
 
     .flex-column { flex-direction: column !important; }
 
@@ -331,6 +463,7 @@
       <div class="row g-4 justify-content-center">
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">⚛️</div>
             <h4 class="fw-bold">Qibo</h4>
             <p class="text-muted mb-4">Classical simulation of quantum computing with hardware acceleration.</p>
             <a href="https://github.com/qiboteam/qibo" class="btn-custom btn-outline-persian w-100">
@@ -341,6 +474,7 @@
 
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">🎛️</div>
             <h4 class="fw-bold">Qibolab</h4>
             <p class="text-muted mb-4">Control module for quantum hardware, bridging algorithms to pulses.</p>
             <a href="https://github.com/qiboteam/qibolab" class="btn-custom btn-outline-persian w-100">
@@ -351,6 +485,7 @@
 
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">📐</div>
             <h4 class="fw-bold">Qibocal</h4>
             <p class="text-muted mb-4">Automated tools for calibration and characterization of quantum processors.</p>
             <a href="https://github.com/qiboteam/qibocal" class="btn-custom btn-outline-persian w-100">
@@ -361,6 +496,7 @@
 
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">🧠</div>
             <h4 class="fw-bold">Qiboml</h4>
             <p class="text-muted mb-4">Quantum-classical machine learning integration library.</p>
             <a href="https://github.com/qiboteam/qiboml" class="btn-custom btn-outline-persian w-100">
@@ -371,6 +507,7 @@
 
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">🎓</div>
             <h4 class="fw-bold">Qiboedu</h4>
             <p class="text-muted mb-4">Quantum computing educational material: an hands-on introductory course.</p>
             <a href="https://github.com/qiboteam/qiboedu" class="btn-custom btn-outline-persian w-100">
@@ -381,6 +518,7 @@
 
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">🧩</div>
             <h4 class="fw-bold">Mpstab</h4>
             <p class="text-muted mb-4">Hybrid Stabilizers-MPO quantum circuit simulator.</p>
             <a href="https://github.com/MatteoRobbiati/mpstab" class="btn-custom btn-outline-persian w-100">
@@ -406,6 +544,7 @@
 
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">🔬</div>
             <h4 class="fw-bold">Kifit</h4>
             <p class="text-muted mb-4">Searching for New Physics with (Non-)Linear King Plots.</p>
             <a href="https://github.com/QTI-TH/kifit" class="btn-custom btn-outline-persian w-100">
@@ -416,6 +555,7 @@
         
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">🛡️</div>
             <h4 class="fw-bold">RTQEM</h4>
             <p class="text-muted mb-4">Real-time quantum error mitigation for variational optimization on quantum hardware.</p>
             <a href="https://github.com/qiboteam/rtqem" class="btn-custom btn-outline-persian w-100">
@@ -426,6 +566,7 @@
 
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">∫</div>
             <h4 class="fw-bold">QiNNtegrate</h4>
             <p class="text-muted mb-4">Multi-dimensional integration with variational quantum circuits.</p>
             <a href="https://github.com/qiboteam/rtqem" class="btn-custom btn-outline-persian w-100">
@@ -436,6 +577,7 @@
 
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">👻</div>
             <h4 class="fw-bold">PyEXORCISM</h4>
             <p class="text-muted mb-4">A Python implementation of a (dummy) EXORCISM algorithm for boolean functions synthesis.</p>
             <a href="https://github.com/MatteoRobbiati/pyexorcism" class="btn-custom btn-outline-persian w-100">
@@ -446,6 +588,7 @@
 
         <div class="col-md-4">
           <div class="card h-100 project-card text-center">
+            <div class="card-emoji">🗄️</div>
             <h4 class="fw-bold">VQExDBQA</h4>
             <p class="text-muted mb-4">Interfacing VQEs with double-bracket quantum algorithms for high-fidelity ground state preparation.</p>
             <a href="https://github.com/qiboteam/boostvqe" class="btn-custom btn-outline-persian w-100">
