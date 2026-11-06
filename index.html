@@ -433,6 +433,21 @@
         max-width: none;
     }
 }                             
+
+    /* Phones: project cards as a compact 2-column grid */
+    @media (max-width: 767.98px) {
+      .row:has(> div > .project-card) { --bs-gutter-x: 0.75rem; --bs-gutter-y: 0.75rem; }
+      .row:has(> div > .project-card) > div { flex: 0 0 auto; width: 50%; }
+      .project-card { padding: 1.25rem 0.75rem 1rem; border-radius: 16px; }
+      .project-card h4 { font-size: 1.05rem; margin-bottom: 0.4rem; word-break: break-word; }
+      .project-card p { display: none; }   /* concise cards on phones: title + link only */
+      .project-card h4 { margin-bottom: 0.7rem; }
+      .project-card .card-emoji { width: 38px; height: 38px; font-size: 1.15rem; border-radius: 12px; margin-bottom: 0.6rem; }
+      .project-card .btn-custom { padding: 0.4rem 0.5rem; font-size: 0.78rem; gap: 6px; }
+      .project-card:hover { transform: none; }
+      .new-badge { top: 8px; right: 8px; font-size: 0.55rem; padding: 0.1rem 0.45rem; }
+      .pub-card { padding: 1.1rem 1.1rem; }
+    }
   </style>
 </head>
 
