@@ -291,36 +291,35 @@
     }
 
     .news-banner {
-      background: linear-gradient(135deg, #FFF9C4 0%, #FFECB3 100%);
-      color: #2c3e50;
-      padding: 1.5rem 1rem;
+      background: linear-gradient(90deg, #152b8d 0%, #1C39BB 50%, #4a63e0 100%);
+      color: #ffffff;
+      padding: 0.7rem 1rem;
       text-align: center;
-      font-weight: 700;
-      border-bottom: 5px solid #FFD700;
+      font-weight: 500;
+      font-size: 0.95rem;
       animation: slideDown 0.5s ease-out;
-      box-shadow: 0 4px 15px rgba(255, 217, 0, 0.3);
     }
-
-    .news-banner a {
-      color: #2c3e50;
-      text-decoration: none;
-      font-weight: 700;
-      margin: 0 0.5rem;
+    .news-banner .news-tag {
       display: inline-block;
-      padding: 0.4rem 0.8rem;
-      background-color: rgba(0, 0, 0, 0.08);
-      border-radius: 6px;
-      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 0.1rem 0.7rem;
+      margin-right: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
-
-    .news-banner a:hover {
-      background-color: rgba(0, 0, 0, 0.15);
-      transform: translateY(-2px);
+    .news-banner a {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(255,255,255,0.5);
+      margin: 0 0.4rem;
     }
-
-    .news-banner i {
-      animation: bounce 1.5s infinite;
-    }
+    .news-banner a:hover { text-decoration-color: #fff; }
 
     @keyframes slideDown {
       from {
@@ -415,9 +414,12 @@
     </div>
   </nav>
 
+  <!-- NEWS BANNER: currently no news. To publish one, uncomment and edit:
   <div class="news-banner">
-    🎉 <strong>News!</strong> 🚀 <a href="https://github.com/MatteoRobbiati/mpstab" target="_blank"><i class="fas fa-cube"></i> Mpstab Released</a> <strong>•</strong> <a href="https://www.qc2lab.com/internship.html" target="_blank"><i class="fas fa-briefcase"></i> Hiring Summer Student</a>
+    <span class="news-tag">News</span>
+    Your news text here <a href="https://example.com" target="_blank">Read more <i class="fas fa-arrow-right"></i></a>
   </div>
+  -->
 
 <header id="about" class="hero-section">
   <div class="container">
