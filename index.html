@@ -9,6 +9,7 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/site.css">
 
   <style>
     :root {
@@ -37,60 +38,6 @@
       font-family: 'Inter', system-ui, -apple-system, sans-serif; 
       color: var(--text-main);
       line-height: 1.6;
-    }
-
-    .btn-custom {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border-radius: 10px;
-      padding: 0.7rem 1.5rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      text-decoration: none;
-      letter-spacing: 0.3px;
-    }
-
-    .btn-toggle-fixed {
-      width: 260px;
-    }
-
-    .btn-persian {
-      background-color: var(--persian-blue);
-      color: #ffffff !important;
-      border: 1px solid var(--persian-blue);
-    }
-
-    .btn-persian:hover {
-      background-color: var(--persian-blue-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 15px rgba(28, 57, 187, 0.25);
-    }
-
-    .btn-outline-persian {
-      background-color: transparent;
-      color: var(--persian-blue) !important;
-      border: 2px solid var(--persian-blue);
-    }
-
-    .btn-outline-persian:hover {
-      background-color: var(--persian-blue);
-      color: #ffffff !important;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 15px rgba(28, 57, 187, 0.15);
-    }
-
-    .navbar { 
-      background-color: var(--persian-blue-dark) !important; 
-      padding: 0.8rem 0;
-    }
-    .navbar-brand, .nav-link { 
-      color: #ffffff !important; 
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      font-weight: 600;
     }
 
     .hero-section { padding: 8rem 0; background-color: var(--pastel-blue); }
@@ -296,12 +243,14 @@
     [data-bs-theme="dark"] #journeyMap .grat { stroke: rgba(124,148,255,0.15); }
     #journeyMap .route-casing { fill: none; stroke: #fff; stroke-width: 5.5; stroke-linecap: round; opacity: 0.85; }
     [data-bs-theme="dark"] #journeyMap .route-casing { stroke: #0e1530; }
-    #journeyMap .route-main { fill: none; stroke: var(--persian-blue); stroke-width: 2.4; stroke-linecap: round; }
+    #journeyMap .route-main { fill: none; stroke: #000; stroke-width: 2.4; stroke-linecap: round; }
     #journeyMap .route-flow { fill: none; stroke: #fff; stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: 0.5 14; animation: flow 1.4s linear infinite; }
     [data-bs-theme="dark"] #journeyMap .route-flow { stroke: #10142a; }
     @keyframes flow { to { stroke-dashoffset: -34; } }
-    #journeyMap .arrowhead { fill: var(--persian-blue); stroke: none; }
-    [data-bs-theme="dark"] #journeyMap .arrowhead { stroke: #0e1530; }
+    #journeyMap .arrowhead { fill: #000; stroke: none; }
+    [data-bs-theme="dark"] #journeyMap .route-main { stroke: #eef1ff; }
+    [data-bs-theme="dark"] #journeyMap .arrowhead { fill: #eef1ff; }
+    [data-bs-theme="dark"] #journeyMap .route-flow { stroke: #1C39BB; }
     #journeyMap .pin-pulse { fill: var(--persian-blue); opacity: 0.25; transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
     @keyframes pulse { 0% { transform: scale(0.8); opacity: 0.5; } 100% { transform: scale(2.2); opacity: 0; } }
     #journeyMap .pin { fill: var(--persian-blue); stroke: #fff; stroke-width: 3; transition: r 0.25s ease; }
@@ -324,15 +273,20 @@
     .callout b { display: block; font-size: 0.95rem; color: var(--persian-blue); font-weight: 800; }
     .callout span { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-main); }
     .callout em { display: block; font-size: 0.72rem; font-style: normal; color: var(--text-muted); margin-top: 1px; }
+    .callout .inst { margin-top: 0.3rem; padding-top: 0.3rem; border-top: 1px dashed rgba(28,57,187,0.25); }
+    .callout .inst i { margin-right: 5px; font-size: 0.68rem; color: var(--persian-blue); }
+    .callout .inst { font-size: 0.72rem; font-weight: 600; color: var(--text-main); }
+    .callout .inst i { display: inline-block; }
     .callout:hover { box-shadow: 0 2px 4px rgba(20,30,80,0.1), 0 14px 30px -10px rgba(28,57,187,0.6); }
     @media (max-width: 767.98px) {
-      .journey-wrap .callout { padding: 0.3rem 0.5rem; max-width: 112px; border-radius: 9px; }
+      .journey-wrap .callout { padding: 0.3rem 0.5rem; max-width: 128px; border-radius: 9px; }
       .callout b { font-size: 0.72rem; } .callout span { font-size: 0.62rem; } .callout em { font-size: 0.56rem; }
+      .callout .inst { font-size: 0.56rem; margin-top: 0.2rem; padding-top: 0.2rem; }
+      .callout .inst i { font-size: 0.52rem; margin-right: 3px; }
     }
 
     .flex-column { flex-direction: column !important; }
 
-    .theme-toggle { cursor: pointer; color: white; font-size: 1.2rem; }
 
     .collapsible-content {
       display: none;
@@ -428,70 +382,67 @@
         margin: 0 auto; /* Extra insurance for centering */
     }
 
-    .pub-card .d-flex {
-        flex-direction: column;
-    }
-    
-    .pub-card .btn-custom {
-        width: 100%;
-        max-width: none;
-    }
+    .pub-card .btn-custom { flex: 1 1 auto; }
 }                             
+
+    /* Publication cards: same visual language as the project cards */
+    .pub-card {
+      --accent-grad: linear-gradient(90deg, #1C39BB, #6f8bff 60%, #a5b8ff);
+      border-radius: 22px; padding: 1.9rem 1.75rem 1.5rem;
+    }
+    [data-bs-theme="dark"] .pub-card { --accent-grad: linear-gradient(90deg, #7c94ff, #b3c0ff); }
+    .pub-card::before, .pub-card:hover::before {
+      left: 0; right: 0; top: 0; bottom: auto; width: auto; height: 5px; border-radius: 0;
+      background: var(--accent-grad); transform: scaleX(0.4); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .pub-card:hover::before { transform: scaleX(1); }
+    .pub-card:hover { transform: translateY(-8px); }
+    .pub-card h5 {
+      background: var(--accent-grad); -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent !important; font-weight: 800 !important;
+    }
+    .pub-card .btn-custom { padding: 0.55rem 1.25rem !important; font-size: 0.9rem; }
+
+
 
     .tagline { display: none; }
 
-    /* Phones: project cards become a swipeable feed (horizontal scroll-snap) */
+    /* Phones: project cards become a vertical feed of tappable rows (no horizontal scroll) */
     @media (max-width: 767.98px) {
-      .row:has(> div > .project-card) {
-        --bs-gutter-x: 0; --bs-gutter-y: 0;
-        flex-wrap: nowrap; justify-content: flex-start !important;
-        overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-        gap: 0.85rem; margin: 0 -1rem; padding: 0.5rem 1rem 1.25rem;
-        scroll-padding: 0 1rem; scrollbar-width: none;
+      .row:has(> div > .project-card) { --bs-gutter-x: 0; --bs-gutter-y: 0.7rem; padding: 0 0.25rem; }
+      .row:has(> div > .project-card) > div { width: 100%; flex: 0 0 100%; max-width: 100%; }
+      .project-card {
+        display: grid; grid-template-columns: 46px 1fr 22px; column-gap: 0.9rem; align-items: center;
+        text-align: left !important; padding: 0.85rem 1rem; border-radius: 16px; height: auto !important;
       }
-      .row:has(> div > .project-card)::-webkit-scrollbar { display: none; }
-      .row:has(> div > .project-card) > div { flex: 0 0 66%; max-width: 66%; padding: 0; scroll-snap-align: start; }
-      .project-card { padding: 1.4rem 1rem 1.1rem; border-radius: 18px; }
-      .project-card h4 { font-size: 1.2rem; margin-bottom: 0.25rem; word-break: break-word; }
-      .project-card p { display: none; }
-      .tagline { display: block; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.9rem; }
-      .project-card .card-emoji { width: 44px; height: 44px; font-size: 1.3rem; border-radius: 14px; margin-bottom: 0.7rem; }
-      .project-card .btn-custom { padding: 0.45rem 0.6rem; font-size: 0.82rem; gap: 6px; }
+      .project-card::before { display: none; }
+      .project-card .card-emoji { grid-row: 1 / span 3; width: 46px; height: 46px; font-size: 1.35rem; border-radius: 14px; margin: 0; }
+      .project-card h4 { grid-column: 2; font-size: 1.1rem; margin: 0; word-break: break-word; }
+      .project-card p { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; grid-column: 2; font-size: 0.78rem; line-height: 1.35; margin: 0.2rem 0 0 !important; }
+      .project-card .tagline { display: none; }
+      /* the whole row is the link; the button collapses into a chevron */
+      .project-card .btn-custom {
+        grid-column: 3; grid-row: 1 / span 3; position: static; width: auto !important;
+        padding: 0; border: 0; background: none !important; font-size: 0; gap: 0; color: var(--persian-blue);
+      }
+      .project-card .btn-custom::after { content: "\f054"; font-family: "Font Awesome 6 Free", "Font Awesome 5 Free"; font-weight: 900; font-size: 0.85rem; }
+      .project-card .btn-custom i { display: none; }
+      .project-card .btn-custom::before { content: ""; position: absolute; inset: 0; }
+      .project-card:active { transform: scale(0.98); }
       .project-card:hover { transform: none; }
-      .new-badge { top: 10px; right: 10px; font-size: 0.55rem; padding: 0.1rem 0.45rem; }
-      .pub-card { padding: 1.1rem 1.1rem; }
+      .new-badge { top: 8px; right: 40px; font-size: 0.55rem; padding: 0.1rem 0.45rem; }
+      .pub-card { padding: 1.1rem 1rem; border-radius: 16px; }
+      .pub-card::before { height: 4px; }
+      .pub-card:hover { transform: none; }
+      .pub-card .btn-custom { padding: 0.45rem 0.9rem !important; font-size: 0.82rem; }
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="#about">
-        <i class="fas fa-home me-2"></i>Home
-        </a>    
-        <div class="d-flex align-items-center order-lg-last ms-3">
-        <div class="theme-toggle me-3" onclick="toggleTheme()">
-          <i class="fas fa-moon" id="themeIcon"></i>
-        </div>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#journey">Journey</a></li>
-          <li class="nav-item"><a class="nav-link" href="#software">Software</a></li>
-          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="#videos">Talks</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="graphic.html">Graphic</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <script src="js/site.js"></script>
 
   <!-- NEWS BANNER: currently no news. To publish one, uncomment and edit:
   <div class="news-banner">
@@ -559,7 +510,7 @@
             <div class="card-emoji">⚛️</div>
             <h4 class="fw-bold">Qibo</h4>
             <div class="tagline">Quantum simulation</div>
-            <p class="text-muted mb-4">Classical simulation of quantum computing with hardware acceleration.</p>
+            <p class="text-muted mb-4">Full-stack API for quantum simulation</p>
             <a href="https://github.com/qiboteam/qibo" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -571,7 +522,7 @@
             <div class="card-emoji">🎛️</div>
             <h4 class="fw-bold">Qibolab</h4>
             <div class="tagline">Hardware control</div>
-            <p class="text-muted mb-4">Control module for quantum hardware, bridging algorithms to pulses.</p>
+            <p class="text-muted mb-4">Quantum hardware control and pulse compilation</p>
             <a href="https://github.com/qiboteam/qibolab" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -583,7 +534,7 @@
             <div class="card-emoji">📐</div>
             <h4 class="fw-bold">Qibocal</h4>
             <div class="tagline">Calibration tools</div>
-            <p class="text-muted mb-4">Automated tools for calibration and characterization of quantum processors.</p>
+            <p class="text-muted mb-4">Calibration and characterization of quantum processors</p>
             <a href="https://github.com/qiboteam/qibocal" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -595,7 +546,7 @@
             <div class="card-emoji">🧠</div>
             <h4 class="fw-bold">Qiboml</h4>
             <div class="tagline">Quantum ML</div>
-            <p class="text-muted mb-4">Quantum-classical machine learning integration library.</p>
+            <p class="text-muted mb-4">Quantum machine learning with Qibo</p>
             <a href="https://github.com/qiboteam/qiboml" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -607,7 +558,7 @@
             <div class="card-emoji">🎓</div>
             <h4 class="fw-bold">Qiboedu</h4>
             <div class="tagline">Learning material</div>
-            <p class="text-muted mb-4">Quantum computing educational material: an hands-on introductory course.</p>
+            <p class="text-muted mb-4">Hands-on introductory quantum computing course</p>
             <a href="https://github.com/qiboteam/qiboedu" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -619,7 +570,7 @@
             <div class="card-emoji">🧩</div>
             <h4 class="fw-bold">Mpstab</h4>
             <div class="tagline">Hybrid simulator</div>
-            <p class="text-muted mb-4">Hybrid Stabilizers-MPO quantum circuit simulator.</p>
+            <p class="text-muted mb-4">Hybrid stabilizer and MPO circuit simulator</p>
             <a href="https://github.com/MatteoRobbiati/mpstab" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -646,7 +597,7 @@
             <div class="card-emoji">🔬</div>
             <h4 class="fw-bold">Kifit</h4>
             <div class="tagline">King plots</div>
-            <p class="text-muted mb-4">Searching for New Physics with (Non-)Linear King Plots.</p>
+            <p class="text-muted mb-4">King plot analysis for New Physics searches</p>
             <a href="https://github.com/QTI-TH/kifit" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -658,7 +609,7 @@
             <div class="card-emoji">🛡️</div>
             <h4 class="fw-bold">RTQEM</h4>
             <div class="tagline">Error mitigation</div>
-            <p class="text-muted mb-4">Real-time quantum error mitigation for variational optimization on quantum hardware.</p>
+            <p class="text-muted mb-4">Real-time quantum error mitigation</p>
             <a href="https://github.com/qiboteam/rtqem" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -670,7 +621,7 @@
             <div class="card-emoji">∫</div>
             <h4 class="fw-bold">QiNNtegrate</h4>
             <div class="tagline">Quantum integration</div>
-            <p class="text-muted mb-4">Multi-dimensional integration with variational quantum circuits.</p>
+            <p class="text-muted mb-4">Multi-dimensional integration with quantum circuits</p>
             <a href="https://github.com/qiboteam/rtqem" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -682,7 +633,7 @@
             <div class="card-emoji">👻</div>
             <h4 class="fw-bold">PyEXORCISM</h4>
             <div class="tagline">Boolean synthesis</div>
-            <p class="text-muted mb-4">A Python implementation of a (dummy) EXORCISM algorithm for boolean functions synthesis.</p>
+            <p class="text-muted mb-4">EXORCISM algorithm for boolean function synthesis</p>
             <a href="https://github.com/MatteoRobbiati/pyexorcism" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -694,7 +645,7 @@
             <div class="card-emoji">🗄️</div>
             <h4 class="fw-bold">VQExDBQA</h4>
             <div class="tagline">Ground states</div>
-            <p class="text-muted mb-4">Interfacing VQEs with double-bracket quantum algorithms for high-fidelity ground state preparation.</p>
+            <p class="text-muted mb-4">VQEs meet double-bracket quantum algorithms</p>
             <a href="https://github.com/qiboteam/boostvqe" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -719,7 +670,7 @@
             <div class="card-emoji">✍️</div>
             <h4 class="fw-bold">Matexxe</h4>
             <div class="tagline">Paper co-author</div>
-            <p class="text-muted mb-4">Your last co-author before ArXiv.</p>
+            <p class="text-muted mb-4">Your last co-author before ArXiv</p>
             <a href="https://github.com/MatteoRobbiati/matexxe" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -731,7 +682,7 @@
             <div class="card-emoji">⏱️</div>
             <h4 class="fw-bold">csbench</h4>
             <div class="tagline">Simulator benchmarks</div>
-            <p class="text-muted mb-4">Benchmarking classical quantum circuit simulators.</p>
+            <p class="text-muted mb-4">Benchmarking classical quantum circuit simulators</p>
             <a href="https://github.com/MatteoRobbiati/csbench" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -743,7 +694,7 @@
             <div class="card-emoji">🔀</div>
             <h4 class="fw-bold">arxiv-crossover</h4>
             <div class="tagline">ArXiv analytics</div>
-            <p class="text-muted mb-4">Scrape ArXiv and analyse the crossover between two research fields.</p>
+            <p class="text-muted mb-4">Crossover analysis between ArXiv research fields</p>
             <a href="https://github.com/MatteoRobbiati/arxiv-crossover" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -754,7 +705,7 @@
             <div class="card-emoji">🏋️</div>
             <h4 class="fw-bold">Traintracker</h4>
             <div class="tagline">Workout tracker</div>
-            <p class="text-muted mb-4">Workout tracker with friends boost.</p>
+            <p class="text-muted mb-4">Workout tracker with friends boost</p>
             <a href="https://github.com/MatteoRobbiati/traintracker" class="btn-custom btn-outline-persian w-100">
               <i class="fab fa-github"></i> Repository
             </a>
@@ -1009,18 +960,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const icon = document.getElementById('themeIcon');
-      if (html.getAttribute('data-bs-theme') === 'light') {
-        html.setAttribute('data-bs-theme', 'dark');
-        icon.classList.replace('fa-moon', 'fa-sun');
-      } else {
-        html.setAttribute('data-bs-theme', 'light');
-        icon.classList.replace('fa-sun', 'fa-moon');
-      }
-    }
-
     function toggleSection(sectionId, btnId, label) {
       const section = document.getElementById(sectionId);
       const btn = document.getElementById(btnId);
@@ -1045,9 +984,9 @@
       const NS = 'http://www.w3.org/2000/svg';
       // [lon, lat]; label side: 1 = right, -1 = left
       const places = [
-        { name: 'Milan',    flag: '🇮🇹', role: 'Bachelor and Master in Physics', year: '2015 – 2022', c: [9.19, 45.46],  side: 1,  dy: 14 },
-        { name: 'CERN, Geneva', flag: '⚛️', role: 'PhD in Physics', year: '2022 – 2025', c: [6.05, 46.23],  side: -1, dy: -14 },
-        { name: 'Göteborg', flag: '🇸🇪', role: 'Postdoctoral Researcher', year: '2025 – today', c: [11.97, 57.71], side: 1,  dy: 0 }
+        { name: 'Milan',    flag: '🇮🇹', role: 'Bachelor and Master in Physics', inst: ['University of Milan'], year: '2015 – 2022', c: [9.19, 45.46],  side: 1,  dy: 14 },
+        { name: 'CERN, Geneva', flag: '⚛️', role: 'PhD in Physics', inst: ['CERN', 'University of Milan'], year: '2022 – 2025', c: [6.05, 46.23],  side: -1, dy: -14 },
+        { name: 'Göteborg', flag: '🇸🇪', role: 'Postdoctoral Researcher', inst: ['Chalmers University of Technology'], year: '2025 – today', c: [11.97, 57.71], side: 1,  dy: 0 }
       ];
       function el(tag, attrs, parent) {
         const e = document.createElementNS(NS, tag);
@@ -1122,7 +1061,7 @@
           // info callout placed directly on the map, next to the pin
           const c = document.createElement('div');
           c.className = 'callout ' + (p.side === 1 ? 'right' : 'left');
-          c.innerHTML = `<b>${p.flag} ${p.name}</b><span>${p.role}</span><em>${p.year}</em>`;
+          c.innerHTML = `<b>${p.flag} ${p.name}</b><span>${p.role}</span><em>${p.year}</em><div class="inst">${p.inst.map(t => `<i class="fas fa-building-columns"></i>${t}`).join('<br>')}</div>`;
           c._p = { x: x / W, y: (y + p.dy) / H, side: p.side };
           c.addEventListener('mouseenter', () => g.classList.add('active'));
           c.addEventListener('mouseleave', () => g.classList.remove('active'));
@@ -1151,5 +1090,7 @@
         .catch(() => { svg.outerHTML = '<p class="text-center text-muted p-5">Map could not be loaded.</p>'; });
     });
   </script>
+
+
 </body>
 </html>

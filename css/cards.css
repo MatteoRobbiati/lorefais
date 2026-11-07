@@ -1,0 +1,77 @@
+/* Web cards on graphic.html: same look as the project cards on the home page */
+.web-card {
+  --accent-grad: linear-gradient(90deg, #1C39BB, #6f8bff 60%, #a5b8ff);
+  position: relative; overflow: hidden; display: block;
+  padding: 2.5rem 1.75rem 2rem;
+  text-decoration: none; color: inherit;
+  border: 1.5px solid rgba(28, 57, 187, 0.22);
+  border-radius: 22px;
+  background:
+    radial-gradient(110% 90% at 0% 0%, rgba(255,255,255,0.55), transparent 60%),
+    linear-gradient(160deg, #dbe3ff 0%, #c5d1fb 100%);
+  box-shadow: 0 2px 4px rgba(20,30,80,0.08), 0 16px 36px -14px rgba(28,57,187,0.38);
+  transition: transform 0.45s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.45s cubic-bezier(0.2,0.8,0.2,1), border-color 0.3s ease;
+}
+[data-bs-theme="dark"] .web-card {
+  --accent-grad: linear-gradient(90deg, #7c94ff, #b3c0ff);
+  border-color: rgba(124,148,255,0.4);
+  background:
+    radial-gradient(110% 90% at 0% 0%, rgba(124,148,255,0.22), transparent 60%),
+    linear-gradient(160deg, #2a3358 0%, #232b49 100%);
+  box-shadow: 0 10px 30px -12px rgba(0,0,0,0.6);
+}
+.web-card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 5px;
+  background: var(--accent-grad); transform: scaleX(0.4); transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1);
+}
+.web-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(28,57,187,0.35);
+  box-shadow: 0 2px 4px rgba(20,30,80,0.06), 0 30px 60px -18px rgba(28,57,187,0.35);
+}
+.web-card:hover::before { transform: scaleX(1); }
+
+.web-card .card-emoji {
+  width: 52px; height: 52px; margin: 0 auto 1rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; border-radius: 16px;
+  background: rgba(255,255,255,0.65);
+  box-shadow: inset 0 0 0 1px rgba(28,57,187,0.15);
+  transition: transform 0.4s cubic-bezier(0.2,0.8,0.2,1);
+}
+[data-bs-theme="dark"] .web-card .card-emoji { background: rgba(124,148,255,0.22); }
+.web-card:hover .card-emoji { transform: scale(1.1) rotate(-6deg); }
+
+.web-card .web-card-title {
+  background: var(--accent-grad); -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  font-weight: 800; font-size: 1.7rem; letter-spacing: -0.5px; margin-bottom: 1rem;
+}
+.web-card p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; }
+.web-card .tagline { display: none; }
+
+.web-card:hover .btn-custom { background: var(--persian-blue); color: #fff; }
+[data-bs-theme="dark"] .web-card:hover .btn-custom { color: #10142a; }
+
+/* Phones: same tappable row as the home-page project cards */
+@media (max-width: 767.98px) {
+  .row:has(> div > .web-card) { --bs-gutter-x: 0; --bs-gutter-y: 0.7rem; padding: 0 0.25rem; }
+  .web-card {
+    display: grid; grid-template-columns: 46px 1fr 22px; column-gap: 0.9rem; align-items: center;
+    text-align: left !important; padding: 0.85rem 1rem; border-radius: 16px; height: auto !important;
+  }
+  .web-card::before { display: none; }
+  .web-card .card-emoji { grid-row: 1 / span 2; width: 46px; height: 46px; font-size: 1.35rem; border-radius: 14px; margin: 0; }
+  .web-card .web-card-title { grid-column: 2; font-size: 1.1rem; margin: 0; }
+  .web-card p { display: none; }
+  .web-card .tagline { display: block; grid-column: 2; font-size: 0.82rem; color: var(--text-muted); }
+  .web-card .btn-custom {
+    grid-column: 3; grid-row: 1 / span 2; padding: 0; border: 0; background: none !important;
+    font-size: 0; gap: 0; color: var(--persian-blue) !important;
+  }
+  .web-card .btn-custom i { display: none; }
+  .web-card .btn-custom::after { content: "\f054"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 0.85rem; }
+  .web-card:active { transform: scale(0.98); }
+  .web-card:hover { transform: none; }
+}
